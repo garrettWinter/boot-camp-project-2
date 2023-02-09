@@ -11,10 +11,18 @@ Order.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
+      references: {
+        model: 'Line_Item',
+        key: 'order_id',
+      },
     },
       customer_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        references: {
+          model: 'Customer',
+          key: 'customer_id',
+        },
       },
     order_total: {
       type: DataTypes.DECIMAL,

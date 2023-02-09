@@ -11,6 +11,10 @@ Customer.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
+      references: {
+        model: 'Order',
+        key: 'customer_id',
+      },
     },
     username: {
       type: DataTypes.STRING,

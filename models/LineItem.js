@@ -15,10 +15,18 @@ LineItem.init(
     order_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        references: {
+          model: 'Order',
+          key: 'order_id',
+        },
       },
       product_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        references: {
+          model: 'Product',
+          key: 'product_id',
+        },
       },
     // NOT MVP
     // product_type: {

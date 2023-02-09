@@ -1,6 +1,9 @@
 # Garretts Custom Ingores
 notes.md
 
+# Sal Custom Ignores
+tempserver.js
+
 # Logs
 logs
 *.log

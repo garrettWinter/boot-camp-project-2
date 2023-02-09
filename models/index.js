@@ -24,7 +24,7 @@ Product.hasOne(LineItem, {
 });
 
 LineItem.hasOne(Product, {
-    foreignKey: 'line_item_id',
+    foreignKey: 'product_id',
 });
 
 module.exports = { Customer, LineItem, Product, Order }

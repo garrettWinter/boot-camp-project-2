@@ -1,18 +1,21 @@
 const router = require('express').Router();
 const { Customer, LineItem, Product, Order } = require('../../models');
 
-router.get('/account', async (req, res) => {
-  try { 
-  // const users = userData.map((project) => project.get({ plain: true }));
+router.get('/', async (req, res) => {
+  try {
+    const dbProductData = await Product.findAll({});
 
-  res.render('account', {
-    // users,
-    // logged_in: req.session.logged_in,
-  });
+    const homepage = dbProductData.map((product) =>
+      product.get({ plain: true })
+    );
 
-} catch (err) {
-      res.status(500).json(err);
-    }
+    res.render('account', {
+      // logged_in: req.session.logged_in,
+    });
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
 }
 )
 

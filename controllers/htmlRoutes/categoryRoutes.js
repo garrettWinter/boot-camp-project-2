@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Customer, LineItem, Product, Order } = require('../models');
+const { Customer, LineItem, Product, Order } = require('../../models');
 
 router.get('/', async (req, res) => {
   try {
@@ -9,8 +9,7 @@ router.get('/', async (req, res) => {
       product.get({ plain: true })
     );
 
-    res.render('homepage', {
-      homepage,
+    res.render('category', {
       // logged_in: req.session.logged_in,
     });
 

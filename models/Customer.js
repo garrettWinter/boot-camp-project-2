@@ -2,6 +2,12 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Customer extends Model {
+
+
+  checkPassword(CustomerPassword) {
+    // return bcrypt.compareSync(userPassword, this.password);
+    return this.password; // Will use non-encryped passwords
+  }
 }
 
 Customer.init(
@@ -16,7 +22,7 @@ Customer.init(
         key: 'customer_id',
       },
     },
-    username: {
+    user_name: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,

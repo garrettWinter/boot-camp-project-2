@@ -1,56 +1,113 @@
+console.log("javascript file is connected")
 //Example seed Data, consts and functions are replaceable, but the data in the array is what we need for now.
-var userCharacter = $('#marvel-input');
-var savedContainer = $('#saved-container');
-var searchBlock = $('#search-block');
-var currentDisplay = $('#current-character');
-var saveCharacterBtn = $('#save-character');
-var moreInfoBtn = $('#more-info');
-var submitButton = $('#search-modal');
-var searchedCharactersName = $("#searched-character");
-var characterName = $("#characterName");
-var characterDescription = $("#description");
-var wikiURLS = $('#wikiUrl-container');
-var backButton = $('#back');
+let userCharacter = $('#marvel-input');
+let savedContainer = $('#saved-container');
+let searchBlock = $('#search-block');
+let currentDisplay = $('#current-character');
+let saveCharacterBtn = $('#save-character');
+let moreInfoBtn = $('#more-info');
+let submitButton = $('#search-modal');
+let searchedCharactersName = $("#searched-character");
+let characterName = $("#characterName");
+let characterDescription = $("#description");
+let wikiURLS = $('#wikiUrl-container');
+let backButton = $('#back');
+let movieId = [];
 let movieInfo = [];
 
-submitButton.on('click', loadInfo);
+// const fs = require('fs');
 
-function loadInfo(){
-    // backButton.attr("class", "is-hidden");
-    var userInput = userCharacter.val();
-    getMarvelCharacter(userInput);
-  }
-  
-  // Get and fetch marvel character from API and whatever attributes
-  function getMarvelCharacter(userInput) {
-    fetch("https://imdb-api.com/en/API/SearchMovie/k_4x8q801j/" + userInput)
+
+submitButton.on('click', getTop250Movies);
+
+
+// This is the api for the bulk product details 1 movie at a time (shawshank)
+// https://imdb-api.com/en/API/Title/k_4x8q801j/tt0111161/Posters,Images,Trailer,Ratings
+
+//This is the 250 top movies
+// https://imdb-api.com/en/API/Top250Movies/k_4x8q801j
+
+
+
+function getTop250Movies (userInput) {
+  fetch("https://imdb-api.com/en/API/Top250Movies/k_4rkr3seb"/* + userInput*/)
     .then(function (response) {
       return response.json();
     })
-    .then(function (characterInfo) {
-        console.log(characterInfo.results);
-        for (let index = 0; index < characterInfo.results.length; index++) {
-            movieInfo.push(characterInfo.results[index].id);
-            
-        }
-        console.log(movieInfo);
-      //Checks to see if Marvel has this character if not prompts user
-        if (characterInfo.data.total === 0) {
-          enterVaildCharacter();
-        } else {
-          // Sets content in character display modal
-          $("#hide").removeClass("is-hidden");
-        //   backButton.attr("class", "is-hidden");
-          characterName.text(characterInfo.data.results[0].title);
-          characterDescription.text(characterInfo.data.results[0].description);
-          $("#icon").attr("src", characterInfo.data.results[0].thumbnail.path + "/portrait_xlarge.jpg");
-  
-        }
-        console.log(characterInfo);
-      })
-  }
+    .then(function (movieParse) {
+      console.log(movieParse.items[0].id);
+      for (let i = 0; i < movieParse.items.length; i++) {
+        movieId.push(movieParse.items[i].id);
+      }
+      console.log(movieId);
+    }
+    )
+    // getTop250MoviesData(movieId);
 
-// const { Gallery } = require('../models');
+
+
+//   fs.writeFile('seeds/rawIDs.json', movieId, (err) =>
+//   err ? console.error(err) : console.log('Success!')
+// );
+
+
+}
+
+//
+// Garretts API Key --  k_4rkr3seb
+// Nicks API Key  -- k_4x8q801j
+
+function getTop250MoviesData (movieId) {
+  // fs.readFile('seeds/rawIDs.json', 'utf8', (error, data) =>
+  // error ? console.error(error) : console.log(data))
+
+  console.log("just kicked off getTop250MoviesData")
+  // for (let i = 0; i < movieId.length; i++) {
+  fetch('https://imdb-api.com/en/API/Title/k_4rkr3seb/tt0015324/Posters,Images,Trailer,Ratings')
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (movieParse) {
+      // console.log("About to do the big parse");
+        // movieInfo.push([
+        //   movieParse.id,
+        //   movieParse.fullTitle,
+        //   movieParse.year,
+        //   movieParse.image,
+        //   movieParse.plot,
+        //   movieParse.genreList,
+        //   movieParse.contentRating,
+        //   movieParse.rottenTomatoes,
+        //   movieParse.imDb,
+        //   movieParse.trailer.link,
+        //   movieParse.trailer.videoDescription
+        // ]);
+
+
+
+      // for (let i = 0; i < 10 ; i++) { //movieParse.items.length
+      //   movieInfo.push([
+      //     movieParse[i].id,
+      //     movieParse[i].title,
+      //     movieParse[i].year,
+      //     movieParse[i].image,
+      //     movieParse[i].plot,
+      //     movieParse[i].genreList,
+      //     movieParse[i].contentRating,
+      //     movieParse[i].rottenTomatoes,
+      //     movieParse[i].imDb,
+      //     movieParse[i].trailer.link,
+      //     movieParse[i].trailer.videoDescription
+      //   ]);
+      //   console.log([i]);
+      // }
+
+
+
+      console.log(movieInfo);
+      console.log("DONE!");
+    })}
+// }
 
 // const movieData = [
 //     {

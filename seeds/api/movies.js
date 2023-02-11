@@ -18,7 +18,7 @@ let movieInfo = [];
 // const fs = require('fs');
 
 
-submitButton.on('click', getTop250Movies);
+submitButton.on('click', getTop250MoviesData);
 
 
 // This is the api for the bulk product details 1 movie at a time (shawshank)
@@ -57,31 +57,39 @@ function getTop250Movies (userInput) {
 // Garretts API Key --  k_4rkr3seb
 // Nicks API Key  -- k_4x8q801j
 
+getTop250MoviesData();
 function getTop250MoviesData (movieId) {
   // fs.readFile('seeds/rawIDs.json', 'utf8', (error, data) =>
   // error ? console.error(error) : console.log(data))
 
   console.log("just kicked off getTop250MoviesData")
   // for (let i = 0; i < movieId.length; i++) {
-  fetch('https://imdb-api.com/en/API/Title/k_4rkr3seb/tt0015324/Posters,Images,Trailer,Ratings')
+  fetch('https://imdb-api.com/en/API/Title/k_4x8q801j/tt0056058/Posters,Images,Trailer,Ratings')
     .then(function (response) {
       return response.json();
     })
     .then(function (movieParse) {
-      // console.log("About to do the big parse");
-        // movieInfo.push([
-        //   movieParse.id,
-        //   movieParse.fullTitle,
-        //   movieParse.year,
-        //   movieParse.image,
-        //   movieParse.plot,
-        //   movieParse.genreList,
-        //   movieParse.contentRating,
-        //   movieParse.rottenTomatoes,
-        //   movieParse.imDb,
-        //   movieParse.trailer.link,
-        //   movieParse.trailer.videoDescription
-        // ]);
+      // console.log(movieParse);
+      console.log("About to do the big parse");
+
+          movieInfo.push({
+            product_price: 24.99,
+            imdb_id: movieParse.id,
+            product_name: movieParse.fullTitle,
+            product_release_year: movieParse.year,
+            product_image: movieParse.image,
+            product_short_description: movieParse.plot,
+            product_genre: movieParse.genres,
+            product_rating: movieParse.contentRating,
+            product_trailer_link: movieParse.trailer.link,
+            product_trailer_description: movieParse.trailer.videoDescription
+})})
+          console.log(movieInfo);
+          console.log("DONE!");
+        }
+
+
+      
 
 
 
@@ -104,9 +112,8 @@ function getTop250MoviesData (movieId) {
 
 
 
-      console.log(movieInfo);
-      console.log("DONE!");
-    })}
+
+
 // }
 
 // const movieData = [

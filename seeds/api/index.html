@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <input class="input" id="marvel-input" type="text" placeholder="Enter a Marvel character">
+        <button class="modal-close is-small" aria-label="close"></button>
+    </div>
+
+    <button class="button js-modal-trigger has-background-danger" id="search-modal" data-target="modal-js-example">
+        Search
+    </button>
+
+    </div>
+    <div id="modal-js-example" class="modal">
+        <div class="modal-background"></div>
+
+        <div class="modal-content">
+            <div class="tile is-parent has-background-danger">
+                <article class="tile is-child notification has-background-danger">
+                    <div class="content" id="current-character">
+
+                        <div id="characterName" class="box"></div>
+                        <div id="hide">
+                            <figure class="image">
+                                <figure>
+                                    <img id="icon" src="" alt="alternative image">
+                                </figure>
+                                <p>
+                                    <span id="description"></span>
+                                </p>
+                            </figure>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="./movies.js"></script>
+
+
+</html>

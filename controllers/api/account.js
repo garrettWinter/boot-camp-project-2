@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const session = require('express-session');
 const { Customer } = require('../../models');
 
 // CREATE new user
@@ -47,6 +48,7 @@ router.post('/login', async (req, res) => {
     }
 
     req.session.save(() => {
+
       req.session.customer_id = CustomerData.customer_id;
       req.session.logged_in = true;
       

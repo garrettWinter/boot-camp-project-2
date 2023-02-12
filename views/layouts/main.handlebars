@@ -29,7 +29,12 @@
         <div class="bulma-ltr-property-mixin">
           <div class="is-two-thirds">
             <input class="input is-link" type="text" placeholder="Search Bar/ Categories">
-            <button class="button is-primary" id=" loginBtn" height="96" width="96">Login/Sign up</button>
+             {{#unless logged_in}}
+          <button class="button is-primary redirect" id="loginBtn" height="96" width="96">Login/Sign up</button>
+          {{/unless}}
+            {{#if logged_in}}
+            <button class="button is-primary" id="logoutBtn" height="96" width="96">Logout</button>
+            {{/if}}
           </div>
         </div>
   </header>
@@ -59,7 +64,7 @@
     <div class="content has-text-centered">
       <p>
         <strong>Contact Us</strong> @ <a href="https://github.com/garrettWinter?tab=repositories">Garrett</a>, <a
-          href="https://github.com/Sal8298?tab=repositories">Sallahuddin</a>, <a
+          href="https://github.com/Sal8298?tab=repositories">Salahuddin</a>, <a
           href="https://github.com/NickHM05">Nicholas</a>, <a
           href="https://github.com/AbdirisakAbukar?tab=repositories">Abdi</a> The source code is licensed
         <a href="http://opensource.org/licenses/mit-license.php">MIT</a>
@@ -71,5 +76,12 @@
 </body>
 {{!--
 <script src=></script> --}}
+{{#if logged_in}}
+<script src="/js/logout.js"></script>
+{{/if}}
+{{#unless logged_in}}
+<script src="/js/signup.js"></script>
+<script src="/js/login.js"></script>
+{{/unless}}
 
 </html>

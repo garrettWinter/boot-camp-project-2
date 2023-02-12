@@ -1,14 +1,15 @@
+{{!-- 1st photo --}}
 {{#if logged_in}}
 <div>
     <h1>My Account</h1>
 </div>
 {{/if}}
 
-
+{{!-- {{else}} --}}
 {{#unless logged_in}}
 
 <h2>Login</h2>
-
+{{!-- Old Code From Before
 <form class="form login-form">
     <div class="form-group">
         <label for="email-login">email:</label>
@@ -21,7 +22,61 @@
     <div class="form-group">
         <button class="btn btn-primary" type="submit">login</button>
     </div>
-</form>
+</form> --}}
 
+<div class="field">
+  <p class="control has-icons-left has-icons-right">
+    <input class="input" type="email" placeholder="Email">
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-check"></i>
+    </span>
+  </p>
+</div>
+<div class="field">
+  <p class="control has-icons-left">
+    <input class="input" type="password" placeholder="Password">
+    <span class="icon is-small is-left">
+      <i class="fas fa-lock"></i>
+    </span>
+  </p>
+</div>
+<div class="field">
+  <p class="control">
+    <button class="button is-success">
+      Login
+    </button>
+  </p>
+</div>
 {{/unless}}
+<h2>Sign-Up</h2>
+<div class="field">
+  <p class="control has-icons-left has-icons-right">
+    <input class="input" type="email" placeholder="Email">
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-check"></i>
+    </span>
+  </p>
+</div>
+<div class="field">
+  <p class="control has-icons-left">
+    <input class="input" type="password" placeholder="Password">
+    <span class="icon is-small is-left">
+      <i class="fas fa-lock"></i>
+    </span>
+  </p>
+</div>
+<div class="field">
+  <p class="control">
+    <button class="button is-success">
+      Login
+    </button>
+  </p>
+</div>
+{{!-- {{/if}} --}}
 <script src="/js/login.js"></script>

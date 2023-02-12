@@ -1,40 +1,75 @@
+{{!-- 2nd photo? --}}
 <!DOCTYPE html>
 <html lang="en-US">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/public/css/style.css">
-    <title>Sal's Movie Store </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" type="text/css" href="/public/css/style.css">
+  <title>Sal's Movie Store</title>
 </head>
 
 <body>
-    <header>
-        <div>
-            <div>
-                <h1>Sal's Online Movie Store</h1>
-            </div>
-            <div>
-                <h2>Search Bar/ Categories</h2>
-            </div>
+  <header>
+    <div class="panel is-info is-fluid">
+      <div class="panel-heading is-four-fifths">
+        <div class="bulma-ltr-position-mixin-parent">
+          <div class="notification is-info" id="customFont" height="24" width="24">Sal's Online Movie Store</div>
         </div>
+        <style>
+          #customFont {
+            background-color: transparent;
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+          }
+        </style>
 
-        <button id="loginBtn">Login/Sign up</button>
+        <div class="bulma-ltr-property-mixin">
+          <div class="is-two-thirds">
+            <input class="input is-link" type="text" placeholder="Search Bar/ Categories">
+            <button class="button is-primary" id=" loginBtn" height="96" width="96">Login/Sign up</button>
+          </div>
+        </div>
+  </header>
+  {{!-- Stack overflow explanation of using id with class for a button
+  https://stackoverflow.com/questions/4371733/can-i-use-div-class-and-id-together-in-css
+
+  #y.x {
+  /* will select element of id="y" that also has class="x" */
+  }
+  Similarly:
+
+  .x#y {
+  /* will select elements of class="x" that also have an id="y" */
+  } --}}
+
+  {{!-- Old code below --}}
+  {{!-- <button id=" loginBtn">Login/Sign up</button> --}}
+
+  <main>
+    {{!-- Comment down from line 52 to 120 for testing other handlebars looks --}}
+    
+    {{{ body }}}
+  </main>
 
 
-    </header>
-
-
-    <main>
-        {{{ body }}}
-    </main>
-
-
-    <footer>
-        
-    </footer>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Contact Us</strong> @ <a href="https://github.com/garrettWinter?tab=repositories">Garrett</a>, <a
+          href="https://github.com/Sal8298?tab=repositories">Sallahuddin</a>, <a
+          href="https://github.com/NickHM05">Nicholas</a>, <a
+          href="https://github.com/AbdirisakAbukar?tab=repositories">Abdi</a> The source code is licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>
+      </p>
+    </div>
+  </footer>
 
 
 </body>
+{{!--
+<script src=></script> --}}
 
 </html>

@@ -27,12 +27,14 @@
         </style>
 
         <div class="bulma-ltr-property-mixin">
-          <div class="is-two-thirds">
-            <input class="input is-link" type="text" placeholder="Search Bar/ Categories">
-            {{#unless logged_in}}
-            <a href="/account"><button class="button is-primary redirect" id="loginBtn" height="96"
-                width="96">Login/Sign up</button></a>
-            {{/unless}}
+          <form class="form"><div class="is-two-thirds">
+            <a href="/search"><button class="button is-primary" id="searchBtn" height="96" width="96">Search</button></a>
+            <input id="searchBar" class="input is-link" type="text" placeholder="Search Bar/ Categories">
+            </div>
+            </form>
+             {{#unless logged_in}}
+          <a href="/account"><button class="button is-primary redirect" id="loginBtn" height="96" width="96">Login/Sign up</button></a>
+          {{/unless}}
             {{#if logged_in}}
             <button class="button is-primary" id="logoutBtn" height="96" width="96">Logout</button>
             {{/if}}
@@ -88,7 +90,7 @@
     </div>
   </div>
 </body>
-
+<script src="/js/searchBar.js"></script>
 {{!--
 <script src=></script> --}}
 {{#if logged_in}}

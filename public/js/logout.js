@@ -1,3 +1,4 @@
+console.log('logout.js loaded');
 const logout = async () => {
     const response = await fetch('/api/account/logout', {
       method: 'POST',

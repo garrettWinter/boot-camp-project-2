@@ -1,19 +1,21 @@
 const router = require('express').Router();
 const { Customer, LineItem, Product, Order } = require('../models');
 
-router.get('/', async (req, res) => {
+router.get('/:id', async (req, res) => {
+  console.log(req.params);
   try {
-    const dbProductData = await Product.findAll({});
+    const dbProductData = await Product.findByPk(req.params.id);
 
-    const homepage = dbProductData.map((product) =>
-      product.get({ plain: true })
-    );
+    const productDetail = dbProductData.get({ plain: true });
 
+    console.log(productDetail);
     res.render('product', {
-      // logged_in: req.session.logged_in,
+      productDetail,
+      logged_in: req.session.logged_in,
     });
 
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 }

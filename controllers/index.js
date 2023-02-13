@@ -8,7 +8,7 @@ const categoryRoutes = require('./categoryRoutes');
 
 router.use('/api', apiRoutes);
 router.use('/', homepageRoutes);
-router.use('/products', productRoutes);
+router.use('/product', productRoutes);
 router.use('/cart', cartRoutes);
 router.use('/account', accountRoutes);
 router.use('/category', categoryRoutes);

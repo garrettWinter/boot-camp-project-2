@@ -1,3 +1,4 @@
+console.log('signup.js loaded');
 const signupFormHandler = async (event) => {
     event.preventDefault();
 

@@ -30,7 +30,7 @@
           <div class="is-two-thirds">
             <input class="input is-link" type="text" placeholder="Search Bar/ Categories">
              {{#unless logged_in}}
-          <button class="button is-primary redirect" id="loginBtn" height="96" width="96">Login/Sign up</button>
+          <a href="/account"><button class="button is-primary redirect" id="loginBtn" height="96" width="96">Login/Sign up</button></a>
           {{/unless}}
             {{#if logged_in}}
             <button class="button is-primary" id="logoutBtn" height="96" width="96">Logout</button>

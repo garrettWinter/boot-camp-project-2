@@ -1,3 +1,4 @@
+console.log('login.js loaded');
 const loginFormHandler = async (event) => {
     event.preventDefault();
 
@@ -20,15 +21,5 @@ const loginFormHandler = async (event) => {
     }
 };
 
-const redirect = async () => {
-  if (redirect) {
-    document.location.replace('/account');
-  } else {
-    alert('Failed to go to Login/Signup Page');
-  }
-};
-
 document.querySelector('.login-form');
 document.addEventListener('submit', loginFormHandler);
-document.querySelector('.redirect');
-document.addEventListener('click', redirect);

@@ -1,6 +1,6 @@
 console.log("homepage.js is connected");
 
-const addToCart = require('../../utils/addToCart')
+// const addToCart = require('../../utils/addToCart')
 
 
 const addToCartBtn = document.querySelector('.addToCartBtn');

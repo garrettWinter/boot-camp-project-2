@@ -12,7 +12,7 @@ const loginFormHandler = async (event) => {
         });
         
         if (response.ok) {
-            document.location.replace('/account');
+            document.location.replace('/');
         } else {
             console.log(response);
             alert('Failed to log in');
@@ -20,5 +20,15 @@ const loginFormHandler = async (event) => {
     }
 };
 
-document.querySelector('.login-form')
+const redirect = async () => {
+  if (redirect) {
+    document.location.replace('/account');
+  } else {
+    alert('Failed to go to Login/Signup Page');
+  }
+};
+
+document.querySelector('.login-form');
 document.addEventListener('submit', loginFormHandler);
+document.querySelector('.redirect');
+document.addEventListener('click', redirect);

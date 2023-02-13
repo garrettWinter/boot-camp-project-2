@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "jest",
-    "start": "npm run css-watch",
+    "start": "node server.js",
     "watch": "nodemon server.js",
     "seed": "node seeds/index.js",
     "css-build": "node-sass --omit-source-map-url sass/mystyles.scss css/mystyles.css",

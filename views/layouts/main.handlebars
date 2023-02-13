@@ -10,12 +10,12 @@
   <title>Sal's Movie Store</title>
 </head>
 
-<body>
+<body class="has-background-grey-darker is-fullheight">
   <header>
     <div class="panel is-info is-fluid">
       <div class="panel-heading is-four-fifths">
         <div class="bulma-ltr-position-mixin-parent">
-          <div class="notification is-info" id="customFont" height="24" width="24">Sal's Online Movie Store</div>
+          <div class="notification is-danger" id="customFont" height="24" width="24">Sal's Online Movie Store</div>
         </div>
         <style>
           #customFont {
@@ -29,9 +29,10 @@
         <div class="bulma-ltr-property-mixin">
           <div class="is-two-thirds">
             <input class="input is-link" type="text" placeholder="Search Bar/ Categories">
-             {{#unless logged_in}}
-          <a href="/account"><button class="button is-primary redirect" id="loginBtn" height="96" width="96">Login/Sign up</button></a>
-          {{/unless}}
+            {{#unless logged_in}}
+            <a href="/account"><button class="button is-primary redirect" id="loginBtn" height="96"
+                width="96">Login/Sign up</button></a>
+            {{/unless}}
             {{#if logged_in}}
             <button class="button is-primary" id="logoutBtn" height="96" width="96">Logout</button>
             {{/if}}
@@ -54,13 +55,16 @@
   {{!-- <button id=" loginBtn">Login/Sign up</button> --}}
 
   <main>
-    {{!-- Comment down from line 52 to 120 for testing other handlebars looks --}}
-    
-    {{{ body }}}
+    <div class="container">
+      <div class="notification has-background-grey-darker is-fullheight">
+        {{!-- Comment down from line 52 to 120 for testing other handlebars looks --}}
+
+        {{{ body }}}
+      </div>
+    </div>
   </main>
 
-
-  <footer class="footer">
+  <div class="footer mt-auto">
     <div class="content has-text-centered">
       <p>
         <strong>Contact Us</strong> @ <a href="https://github.com/garrettWinter?tab=repositories">Garrett</a>, <a
@@ -70,10 +74,21 @@
         <a href="http://opensource.org/licenses/mit-license.php">MIT</a>
       </p>
     </div>
-  </footer>
+  </div>
 
-
+<div class="footer mt-auto">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Contact Us</strong> @ <a href="https://github.com/garrettWinter?tab=repositories">Garrett</a>, <a
+          href="https://github.com/Sal8298?tab=repositories">Salahuddin</a>, <a
+          href="https://github.com/NickHM05">Nicholas</a>, <a
+          href="https://github.com/AbdirisakAbukar?tab=repositories">Abdi</a> The source code is licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>
+      </p>
+    </div>
+  </div>
 </body>
+
 {{!--
 <script src=></script> --}}
 {{#if logged_in}}
@@ -83,5 +98,7 @@
 <script src="/js/signup.js"></script>
 <script src="/js/login.js"></script>
 {{/unless}}
+
+  
 
 </html>

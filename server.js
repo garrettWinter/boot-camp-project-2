@@ -3,6 +3,9 @@ const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
+const morgan = require('morgan');
+const fs = require('fs');
+const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a'})
 // const helpers = require('./utils/helpers');
 
 const sequelize = require('./config/connection');
@@ -41,6 +44,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
+app.use(morgan(':method ":referrer" (:status) :response-time ms [:date[web]]', { stream: accessLogStream }))
 
 sequelize.sync({ force: false, alter: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening Now Listening on port '+ PORT + ' http://localhost:3001' ));

@@ -5,7 +5,7 @@ const submitOrderBtn = document.querySelector('#submitOrderBtn'); /// UPdate to 
 async function cartSubmit() {
     console.log('Cart Submit triggered')
 
-    const response = await fetch('/api/savedCart/newLineItem', {
+    const response = await fetch('/api/submitorder/createorder', { // This path needs to be updated!
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
     });

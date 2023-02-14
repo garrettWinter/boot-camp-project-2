@@ -28,12 +28,35 @@ LineItem.hasOne(Product, {
     foreignKey: 'product_id',
 });
 
-SavedCart.hasMany(Product, {
+
+Product.belongsToMany(SavedCart, { through: 'product_id' });
+Customer.belongsToMany(SavedCart, { through: 'customer_id' });
+
+SavedCart.belongsToMany(Product, { through: 'product_id' });
+SavedCart.belongsToMany(Customer, { through: 'customer_id' });
+
+
+
+
+SavedCart.hasOne(Product, {
     foreignKey: 'product_id',
 });
 
 SavedCart.hasOne(Customer, {
     foreignKey: 'customer_id',
 });
+
+/////////////
+
+// Product.hasMany(SavedCart, {
+//     foreignKey: 'product_id',
+// });
+
+// Customer.hasOne(SavedCart, {
+//     foreignKey: 'customer_id',
+// });
+
+
+
 
 module.exports = { Customer, LineItem, Product, Order, SavedCart }

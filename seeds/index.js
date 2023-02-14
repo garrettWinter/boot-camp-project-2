@@ -4,11 +4,13 @@ const Product = require('../models/Product');
 const Customer = require('../models/Customer');
 const Order = require('../models/Order');
 const LineItem = require('../models/LineItem');
+const SavedCart = require('../models/SavedCart');
 
 const productData = require('./data/productSeeds.json');
 const customerData = require('./data/customerSeeds.json');
 const orderData = require('./data/orderSeeds.json');
 const lineItemData = require('./data/lineItemSeeds.json');
+const savedCartData = require('./data/savedCartDataSeeds.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -29,6 +31,11 @@ const seedDatabase = async () => {
   });
 
   await LineItem.bulkCreate(lineItemData, {
+    individualHooks: true,
+    returning: true,
+  });
+
+  await SavedCart.bulkCreate(savedCartData, {
     individualHooks: true,
     returning: true,
   });

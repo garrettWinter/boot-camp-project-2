@@ -20,8 +20,8 @@ const hbs = exphbs.create({ });
 const sess = {
   secret: 'Super secret secret',
   cookie: {
-    // 5 Mins
-    maxAge: 300000,
+    // 15 Mins
+    maxAge: 900000,
     httpOnly: true,
     secure: false,
     sameSite: 'strict',
@@ -44,7 +44,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
-app.use(morgan(':method ":referrer" (:status) :response-time ms [:date[web]]', { stream: accessLogStream }))
+app.use(morgan(':method ":referrer" (:status) :response-time ms [:date[web]] :url', { stream: accessLogStream }))
 
 sequelize.sync({ force: false, alter: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening Now Listening on port '+ PORT + ' http://localhost:3001' ));

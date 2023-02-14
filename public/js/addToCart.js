@@ -1,4 +1,4 @@
-console.log("homepage.js is connected");
+console.log("addToCart.js is connected");
 
 // const addToCart = require('../../utils/addToCart')
 let clickedProduct;

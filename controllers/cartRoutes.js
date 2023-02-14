@@ -2,13 +2,14 @@ const router = require('express').Router();
 const { Customer, LineItem, Product, Order } = require('../models');
 
 router.get('/', async (req, res) => {
-  const cart = JSON.parse(localStorage.getItem('cart'));
-  const products = [];
-  
-  for (let i = 0; i < cart.length; i++) {
-   products.push(cart[i].product_id);
-   console.log(products);
+
+  if (typeof localStorage === 'undefined' || localStorage === null) {
+    const LocalStorage = require('node-localstorage').LocalStorage;
+    localStorage = new LocalStorage('./scratch');
   }
+
+  console.log('Checking Local Storage')
+  console.log(localStorage.getItem('cart'))
 
   try {
     const dbProductData = await Product.findAll({});

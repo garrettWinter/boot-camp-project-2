@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Customer, LineItem, Product, Order } = require('../models');
+const{Op} = require('sequelize');
 
 router.get('/:term', async (req, res) => {
   console.log("Inside Search Controller") // Can see this in the terminal logs

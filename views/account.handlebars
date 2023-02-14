@@ -1,4 +1,4 @@
-{{!-- 1st photo --}}
+{{!-- 1st photo finished --}}
 {{#if logged_in}}
 <div>
   <h1>My Account</h1>
@@ -8,7 +8,7 @@
 {{!-- {{else}} --}}
 {{#unless logged_in}}
 {{!-- Line 26 to 54 wrapped in a form. It is needed for buttons to actually work --}}
-<h2>Login</h2>
+{{!-- <h2 class="has-text-white-bis has-text-weight-bold">Login</h2> --}}
 <form class="form login-form">
   <div class="field">
     <p class="control has-icons-left has-icons-right">
@@ -31,14 +31,14 @@
   </div>
   <div class="field">
     <p class="control">
-      <button class="button is-success" type="submit">
+      <button class="button is-success mb-4" type="submit">
         Login
       </button>
     </p>
   </div>
 </form>
 
-<h2>Sign-Up</h2>
+{{!-- <h2 class="has-text-white-bis mt-4 is-family-sans-serif has-text-weight-bold">Sign-Up</h2> --}}
 <form class="form signup-form">
   <div class="field">
     <p class="control has-icons-left has-icons-right">

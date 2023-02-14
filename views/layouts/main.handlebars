@@ -1,4 +1,4 @@
-{{!-- 2nd photo? --}}
+{{!-- 2nd photo? finished--}}
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -12,17 +12,28 @@
 
 <body class="has-background-grey-darker is-fullheight">
   <header>
-    <div class="panel is-info is-fluid">
-      <div class="panel-heading is-four-fifths">
+    <div class="panel has-danger-dark is-fluid has-background-grey-darker is-fullheight">
+      <div class="panel-heading is-four-fifths has-background-grey-darker is-fullheight">
         <div class="bulma-ltr-position-mixin-parent">
           <div class="notification is-danger" id="customFont" height="24" width="24">Sal's Online Movie Store</div>
         </div>
         <style>
           #customFont {
-            background-color: transparent;
-            margin: 0px;
-            padding: 0px;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+          }
+
+          body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+          }
+
+          #footer {
+            margin-top: auto
+          }
+
+          #divFooter {
+            margin-top: auto
           }
         </style>
 
@@ -66,17 +77,35 @@
     </div>
   </main>
 
-  <div class="footer mt-auto">
+  {{!-- <div class="footer mt-auto">
     <div class="content has-text-centered">
       <p>
-        <strong>Contact Us</strong> @ <a href="https://github.com/garrettWinter?tab=repositories">Garrett</a>, <a
-          href="https://github.com/Sal8298?tab=repositories">Salahuddin</a>, <a
-          href="https://github.com/NickHM05">Nicholas</a>, <a
-          href="https://github.com/AbdirisakAbukar?tab=repositories">Abdi</a> The source code is licensed
-        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>
       </p>
     </div>
-  </div>
+  </div> --}}
+  <footer class="mt-auto is-flex-wrap-wrap is-justify-content-flex-end is-align-content-end" id="footer">
+    <section class="hero is-primary mt-3">
+      <div class="hero-body mt-auto" id="divFooter">
+        <p class="title">
+          <strong>Contact Us</strong>
+        <p>
+          <strong>Click below @</strong>
+        </p>
+        </p>
+        <p class="subtitle mt-auto">
+          <a href="https://github.com/garrettWinter?tab=repositories">Garrett</a>, <a
+            href="https://github.com/Sal8298?tab=repositories">Salahuddin</a>, <a
+            href="https://github.com/NickHM05">Nicholas</a>, <a
+            href="https://github.com/AbdirisakAbukar?tab=repositories">Abdi</a> The source code is licensed
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>
+        </p>
+      </div>
+    </section>
+  </footer>
+
+  {{!-- Does body need to be moved? --}}
+
+</body>
 
 <div class="footer mt-auto">
     <div class="content has-text-centered">
@@ -90,7 +119,7 @@
     </div>
   </div>
 </body>
-<script src="/js/searchBar.js"></script>
+
 {{!--
 <script src=></script> --}}
 {{#if logged_in}}
@@ -101,6 +130,6 @@
 <script src="/js/login.js"></script>
 {{/unless}}
 
-  
+
 
 </html>

@@ -29,11 +29,11 @@ LineItem.hasOne(Product, {
 });
 
 
-Product.belongsToMany(SavedCart, { through: 'product_id' });
-Customer.belongsToMany(SavedCart, { through: 'customer_id' });
+// Product.belongsToMany(SavedCart, { through: 'product_id' });
+// Customer.belongsToMany(SavedCart, { through: 'customer_id' });
 
-SavedCart.belongsToMany(Product, { through: 'product_id' });
-SavedCart.belongsToMany(Customer, { through: 'customer_id' });
+// SavedCart.belongsToMany(Product, { through: 'product_id' });
+// SavedCart.belongsToMany(Customer, { through: 'customer_id' });
 
 
 
@@ -46,15 +46,15 @@ SavedCart.hasOne(Customer, {
     foreignKey: 'customer_id',
 });
 
-/////////////
+///////////
 
-// Product.hasMany(SavedCart, {
-//     foreignKey: 'product_id',
-// });
+Product.hasMany(SavedCart, {
+    foreignKey: 'product_id',
+});
 
-// Customer.hasOne(SavedCart, {
-//     foreignKey: 'customer_id',
-// });
+Customer.hasOne(SavedCart, {
+    foreignKey: 'customer_id',
+});
 
 
 

@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
     console.log("about to log cart");
     console.log(cart); //This will log the cart object
     console.log("about to log Products");
-    console.log(cart.Products)
+    console.log(cart[0].Product)
     res.render('cart', {
       cart,
       logged_in: req.session.logged_in,

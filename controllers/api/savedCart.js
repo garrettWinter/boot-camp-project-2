@@ -3,12 +3,14 @@ const session = require('express-session');
 const { SavedCart } = require('../../models');
 
 router.post('/newLineItem', async (req, res) => {
-    console.log(req.body)
+    console.log(req.session);
+    console.log(req.body);
+    
 try {
    const dbSavedLine = await SavedCart.create({
     customer_id: req.session.customer_id,
-    product_id: req.body.product_id,
-    qty: req.body.qty,
+    product_id: req.body.savedData.product_id,
+    qty: req.body.savedData.qty,
    });
 
 } catch (error) {

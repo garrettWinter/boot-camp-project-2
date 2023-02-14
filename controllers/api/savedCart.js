@@ -4,7 +4,7 @@ const { SavedCart } = require('../../models');
 
 router.post('/newLineItem', async (req, res) => {
     console.log(req.session);
-    console.log(req.body);
+    // console.log(req.body);
     
 try {
    const dbSavedLine = await SavedCart.create({

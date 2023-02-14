@@ -8,5 +8,3 @@ router.use('/savedCart', savedCartRoutes);
 router.use('/submitorder', submitOrderRoutes);
 
 module.exports = router;
-
-submitorder

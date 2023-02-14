@@ -1,28 +1,23 @@
 console.log("homepage.js is connected");
 
 // const addToCart = require('../../utils/addToCart')
-
 let clickedProduct;
-
 const addToCartBtns = document.querySelectorAll('.addToCartBtn');
 
-function addToCart(product_id, qty) {
-    console.log("Inside addToCard Function"); 
-    newproduct = {
+
+async function addToCart(product_id) {
+    console.log('Add to Cart triggered')
+   const savedData = {
         product_id: product_id,
-        qty: qty
+        qty: 1,
     }
-    console.log("newProduct following");
-    console.log(newproduct);
-    cart = [];
-    if (localStorage.cart != undefined) {
-        cart = JSON.parse(localStorage.getItem("cart"));
-    }
-    console.log("cart pre push");
-    cart.push(newproduct);
-    console.log("cart post push");
-    console.log("cart");
-    localStorage.setItem("cart", JSON.stringify(cart));
+
+    console.log(savedData)
+    const response = await fetch('/api/savedCart/newLineItem', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ savedData })
+      });
 }
 
 

@@ -27,12 +27,10 @@ Customer.init(
     user_name: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
     },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
       validate: {
         isEmail: true,
       },
@@ -63,6 +61,10 @@ Customer.init(
     freezeTableName: true,
     underscored: true,
     modelName: 'Customer',
+    indexes: [
+      { unique: true, fields: ["user_name"]},
+      { unique: true, fields: ["email"]}
+    ]
   },
 );
 

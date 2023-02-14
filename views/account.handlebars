@@ -1,7 +1,19 @@
 {{!-- 1st photo finished --}}
 {{#if logged_in}}
 <div>
-  <h1>My Account</h1>
+  <h1 class="box">My Account</h1>
+  <h2 class="box">Your Previous Orders!</h2>
+  {{#each order as |post|}}
+  <div class="productCard p-5">
+    <div class="box">
+      <div class="media">
+        <div class="fontfamily-sans-serif p-5">Order ID:{{post.order_id}}</div>
+        <div class="fontfamily-sans-serif p-5">Order Total:{{post.order_total}}</div>
+        <div class="fontfamily-sans-serif p-5">Order Date:{{post.createdAt}}</div>
+      </div>
+    </div>
+  </div>
+  {{/each}}
 </div>
 {{/if}}
 

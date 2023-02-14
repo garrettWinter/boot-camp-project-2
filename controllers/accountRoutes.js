@@ -30,9 +30,13 @@ router.get('/orderHistory', async (req, res) => {
       },
     });
 
-    console.log(dbOrderData);
+    const order = dbOrderData.map((order) =>
+      order.get({ plain: true })
+    );
+
+    console.log(order);
     res.render('account', {
-      dbOrderData,
+      order,
       logged_in: req.session.logged_in,
     });
 

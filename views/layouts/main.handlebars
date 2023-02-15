@@ -38,19 +38,36 @@
         </style>
 
         <div class="bulma-ltr-property-mixin">
-          <form class="form"><div class="is-two-thirds">
-            <a href="/search"><button class="button is-primary" id="searchBtn" height="96" width="96">Search</button></a>
-            <input id="searchBar" class="input is-link" type="text" placeholder="Search Bar/ Categories">
+          <form class="form">
+            <div class="is-two-thirds">
+              <a href="/search"><button class="button is-primary" id="searchBtn" height="96"
+                  width="96">Search</button></a>
+              <input id="searchBar" class="input is-link" type="text" placeholder="Search Bar/ Categories">
             </div>
-            </form>
-             {{#unless logged_in}}
-          <a href="/account"><button class="button is-primary redirect" id="loginBtn" height="96" width="96">Login/Sign up</button></a>
+          </form>
+
+          {{#unless logged_in}}
+          <a href="/account"><button class="button is-primary redirect" id="loginBtn" height="96" width="96">Login/Sign
+              up</button></a>
+
+
+
           {{/unless}}
-            {{#if logged_in}}
-            <button class="button is-primary" id="logoutBtn" height="96" width="96">Logout</button>
-            {{/if}}
-          </div>
+          {{#if logged_in}}
+
+          <a href="/category/{{post.product_genre}}"><button class="button is-primary" height="96"
+              width="96">Categories</button></a>
+
+          <button class="button is-primary" id="logoutBtn" height="96" width="96">Logout</button>
+
+          <a href="/account/"><button class="button is-primary" height="96"
+              width="96">Account</button></a>
+
+          <a href="/cart/"><button class="button is-primary" height="96"
+              width="96">Your Cart</button></a>
+          {{/if}}
         </div>
+      </div>
   </header>
   {{!-- Stack overflow explanation of using id with class for a button
   https://stackoverflow.com/questions/4371733/can-i-use-div-class-and-id-together-in-css
@@ -108,16 +125,16 @@
 </body>
 
 {{!-- <div class="footer mt-auto">
-    <div class="content has-text-centered">
-      <p>
-        <strong>Contact Us</strong> @ <a href="https://github.com/garrettWinter?tab=repositories">Garrett</a>, <a
-          href="https://github.com/Sal8298?tab=repositories">Salahuddin</a>, <a
-          href="https://github.com/NickHM05">Nicholas</a>, <a
-          href="https://github.com/AbdirisakAbukar?tab=repositories">Abdi</a> The source code is licensed
-        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>
-      </p>
-    </div>
+  <div class="content has-text-centered">
+    <p>
+      <strong>Contact Us</strong> @ <a href="https://github.com/garrettWinter?tab=repositories">Garrett</a>, <a
+        href="https://github.com/Sal8298?tab=repositories">Salahuddin</a>, <a
+        href="https://github.com/NickHM05">Nicholas</a>, <a
+        href="https://github.com/AbdirisakAbukar?tab=repositories">Abdi</a> The source code is licensed
+      <a href="http://opensource.org/licenses/mit-license.php">MIT</a>
+    </p>
   </div>
+</div>
 </body> --}}
 
 {{!--

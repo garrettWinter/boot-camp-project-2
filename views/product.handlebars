@@ -8,8 +8,8 @@
         <div class="tile">
             <div class="tile is-parent is-vertical">
                 <article class="tile is-child notification is-info">
-                    <figure class="image is-128x128 is-inline-block">
-                        <a class="image is-256x256 is-inline-block" href="/product/{{pd.product_id}}"><img
+                    <figure class="image is-4by1 is-inline-block">
+                        <a class="image is-256x256 is-inline-block" href="/product/{{pd.id.product_id}}"><img
                                 class="image is-256x256" src="{{pd.product_image}}" alt="Movie-Image"></a>
                     </figure>
                 </article>
@@ -20,7 +20,10 @@
                         <p class="title">{{pd.product_name}}</p>
                         <p class="subtitle">{{pd.product_short_description}}</p>
                         <div class="content">
+                            <strong>Trailer Description</strong>
                             <!-- Content -->
+                            <br>
+                           {{pd.product_trailer_description}}
                         </div>
                     </div>
                 </article>

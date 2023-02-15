@@ -15,6 +15,7 @@ const signupFormHandler = async (event) => {
         
         if (response.ok) {
             document.location.replace('/');
+            alert('Congratulations. Your account has been made!');
         } else {
             console.log(response);
             alert('Failed to Sign Up');

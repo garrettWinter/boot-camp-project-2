@@ -49,8 +49,8 @@
           {{#unless logged_in}}
           <a href="/account"><button class="button is-primary redirect" id="loginBtn" height="96" width="96">Login/Sign
               up</button></a>
-
-
+          <a href="/category/{{post.product_genre}}"><button class="button is-primary" height="96"
+              width="96">Categories</button></a>
 
           {{/unless}}
           {{#if logged_in}}
@@ -58,13 +58,11 @@
           <a href="/category/{{post.product_genre}}"><button class="button is-primary" height="96"
               width="96">Categories</button></a>
 
-          <button class="button is-primary" id="logoutBtn" height="96" width="96">Logout</button>
+          <a href="/account/orderhistory"><button class="button is-primary" height="96" width="96">Account</button></a>
 
-          <a href="/account/"><button class="button is-primary" height="96"
-              width="96">Account</button></a>
+          <a href="/cart/"><button class="button is-primary" height="96" width="96">Your Cart</button></a>
 
-          <a href="/cart/"><button class="button is-primary" height="96"
-              width="96">Your Cart</button></a>
+           <button class="button is-primary" id="logoutBtn" height="96" width="96">Logout</button>
           {{/if}}
         </div>
       </div>

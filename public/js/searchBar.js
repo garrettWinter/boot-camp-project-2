@@ -14,5 +14,6 @@ const searchRedirect = async (event) => {
 
 };
 
-searchBtn.addEventListener('submit', searchRedirect);
+//no idea why but submit has issues eventually. click is most reliable
+searchBtn.addEventListener('click', searchRedirect);
 console.log(searchRedirect)

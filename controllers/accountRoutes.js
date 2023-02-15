@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
 }
 )
 
-router.get('/orderHistory', async (req, res) => {
+router.get('/orderhistory', async (req, res) => {
   try {
     const dbOrderData = await Order.findAll({
       where: {

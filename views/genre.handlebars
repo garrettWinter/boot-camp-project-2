@@ -1,0 +1,33 @@
+{{!-- {{#each homepage as |post|}}
+<a href="/category/{{post.product_genre}}"><button class="button is-primary" height="96"
+        width="96">{{post.product_genre}}</button></a>
+{{/each}} --}}
+
+<div class="dropdown is-hoverable">
+    <div class="dropdown-trigger">
+        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+            <span>Dropdown button</span>
+            <span class="icon is-small">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </span>
+        </button>
+    </div>
+    <div class="dropdown-menu" id="dropdown-menu" role="menu" ;>
+        <div class="dropdown-content p5" style="height: 300px; overflow: auto;">
+            {{#each homepage as |post|}}
+            <a href="/category/{{post.product_genre}}" class="dropdown-item"><button class="button is-primary"
+                    height="96" width="96">{{post.product_genre}}</button></a>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+<style>
+    @media screen and (max-width: 769px) {
+    .dropdown.is-hoverable .dropdown-menu {
+      left: 0 !important;
+      right: 0 !important;
+    }
+  }
+</style>
+<script src="/js/dropdown.js"></script>

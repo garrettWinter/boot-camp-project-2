@@ -1,49 +1,31 @@
-{{!--3rd photo --}}
-{{!-- Nick's Code for further implementation  --}}
-<div class="card-content">
-  <div><strong>Categories</strong></div>
-  <div class="column"><a>Thriller</a>.
-      <a href="#">#css</a> <a href="#">#responsive</a></div>
-  <div class="column"><a>Romance</a>.
-      <a href="#">#css</a> <a href="#">#responsive</a></div>
-  <div class="column"><a>Action</a>.
-      <a href="#">#css</a> <a href="#">#responsive</a></div>
-</div>
 
-<ul>
-  {{#each categories as |category|}}
-  <li>
-    {{category}}
-  </li>
-  {{/each}}
-</ul>
-
-{{!-- Nick's Code for further implementation <ul> --}}
-  <div class="columns">
-    <div class="column is-one-third">
-      <div class="card">
-        <div class="card-image">
-          <figure class="image is-4by3">
-            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-          </figure>
-        </div>
-        <div class="card-content">
-          <div class="media">
-            <div class="media-left">
-              <figure class="image is-48x48">
-                <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-              </figure>
-            </div>
-            <div class="media-content">
-              <p class="title is-4">Movie Name</p>
-              <p class="subtitle is-6">Product Rating PG-13</p>
-            </div>
-          </div>
-
-          <div class="content">
-            Movie Description<a>@bulmaio</a>.
-            <a href="#">#css</a> <a href="#">#responsive</a>
-          </div>
-        </div>
+{{#each results as |post|}}
+<div class="productCard p-1">
+  <div class="box">
+    <article class="media">
+      <div class="media-left">
+        <figure class="image is-128x128 is-inline-block">
+          <a class="image is-256x256 is-inline-block" href="/product/{{post.product_id}}"><img class="image is-256x256"
+              src="{{post.product_image}}" alt="Movie-Image"></a>
+        </figure>
       </div>
-</ul>
+      <div class="media-content">
+        <div class="content">
+          <p>
+          <div class="fontfamily-sans-serif"><strong><a href="/product/{{post.product_id}}">{{post.product_name}}</a><br>Genre: {{post.product_genre}}
+            </strong></div>
+          <br>
+          {{post.product_short_description}}
+          </p>
+        </div>
+        <button data-productID="{{post.product_id}}" class="button is-success addToCartBtn" height="96" width="96">Buy
+          Now!</button>
+        ${{post.product_price}}
+        <br>
+      </div>
+    </article>
+  </div>
+</div>
+{{/each}}
+
+<script src="/js/addToCart.js"></script>

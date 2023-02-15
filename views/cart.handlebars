@@ -1,80 +1,60 @@
 {{!-- Last Photo Finished--}}
-    </div>
-    <h1 class='has-text-white is-size-3 pl-6'>Cart!</h1>
-</div>
+{{!-- {{each dbSavedLine as |cartstuff|}} --}}
 <div>
-    <div class="movie-1 pl-6">
-      <figure class="image1 is-128x128">
-        <img src="https://bulma.io/images/placeholders/128x128.png">
-      </figure>
-      {{!-- <button class="button is-primary mb-3" height="96" width="96">Buy Now!</button> --}}
-    </div>
-
-    <div class="movie-2 pl-6">
-      <figure class="image2 is-256x256">
-        <img src="https://bulma.io/images/placeholders/128x128.png">
-      </figure>
-      {{!-- <button class="button is-primary mb-3" height="96" width="96">Buy Now!</button> --}}
-    </div>
-  
-
-<section class="hero is-primary">
-  <div class="movie-2 pl-6">
-      <figure class="image2 is-256x256">
-        <img src="https://bulma.io/images/placeholders/128x128.png">
-      </figure>
-      {{!-- <button class="button is-primary mb-3" height="96" width="96">Buy Now!</button> --}}
-    
-  <div class="hero-body">
-    <p class="title">
-      Cost
-    </p>
-    <p class="subtitle">
-      Quantity
-    </p>
-  </div>
-  </div>
-</section>
-
-<br>
-
-  <section class="hero is-primary">
-  <div class="hero-body">
-    
-    <p class="title">
-      Cost
-    </p>
-    <p class="subtitle">
-      Quantity
-    </p>
-  </div>
-</section>
-
-\
-
-<br>
-
-<section class="hero is-danger is-small">
-  <div class="hero-body">
-    <p class="title">
-      Total Cost:
-    </p>
-    <p class="subtitle">
-      Total Movies/Quantity:
-    </p>
-  </div>
-</section>
-
-    <div class="field is-grouped is-grouped-centered">
-  <p class="control">
-    <a class="button is-danger mt-1 mb-1">
-      Submit
-    </a>
-  </p>
-  <p class="control">
-    <a class="button is-light mt-1 mb-1">
-      Continue Shopping
-    </a>
-  </p>
+  <h1 class='has-text-white is-size-3 pl-6'>Cart!</h1>
 </div>
-<script src="/js/homepage.js"></script>
+{{#each cart as |cartstuff|}}
+<div>
+  {{!-- <div class="movie-1 pl-6">
+    <figure class="image1 is-128x128">
+      <img src="{{carstuff.Product.product_image}}">
+    </figure>
+  </div> --}}
+
+  <div class="hero is-primary">
+    <div class="columns mt-1">
+      <div class="column is-one-fifth">
+        <figure class="image is-1x3 pl-3">
+          <img src="{{cartstuff.Product.product_image}}" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="column mr-2">
+        <p class="is-size-1">{{cartstuff.Product.product_name}}</p>
+        <br>
+        <p class="is-size-3">{{cartstuff.Product.product_short_description}}</p>
+        <br>
+        <p class="is-size-2">Price: ${{cartstuff.Product.product_price}}</p>
+        <p class="is-size-2 mb-1">Quantity: {{cartstuff.qty}}</p>
+      </div>
+    </div>
+  </div>
+  <br>
+  {{/each}}
+
+  <br>
+
+  <section class="hero is-danger is-small">
+    <div class="hero-body">
+      <p class="title">
+        Total Cost:
+      </p>
+      <p class="subtitle">
+        Total Movies/Quantity:
+      </p>
+    </div>
+  </section>
+
+  <div class="field is-grouped is-grouped-centered">
+    <p class="control">
+      <a href='/account/orderhistory' id="submitOrderBtn" class="button is-danger mt-1 mb-1">
+        Submit
+      </a>
+    </p>
+    <p class="control">
+      <a href='/' class="button is-light mt-1 mb-1">
+        Continue Shopping
+      </a>
+    </p>
+  </div>
+  <script src="/js/homepage.js"></script>
+  <script src="/js/cartSubmit.js"></script>

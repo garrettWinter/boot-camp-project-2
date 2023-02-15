@@ -3,7 +3,7 @@ const { Customer, LineItem, Product, Order, SavedCart } = require('../models');
 
 router.get('/', async (req, res) => {
   console.log("In cart route");
-  console.log(req.session.logged_in); //THis will return session
+  console.log(req.session.logged_in); //This will return session
   try {
     const dbSavedCartData = await SavedCart.findAll({
       include: [
@@ -27,6 +27,7 @@ router.get('/', async (req, res) => {
       logged_in: req.session.logged_in,
     });
    } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   
   }

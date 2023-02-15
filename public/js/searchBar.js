@@ -5,7 +5,7 @@ const searchBtn = document.querySelector('#searchBtn');
 
 
 
-const searchRedirect = async () => {
+const searchRedirect = async (event) => {
   event.preventDefault();
   const term = searchBar.value.trim();
   console.log(term);
@@ -14,4 +14,6 @@ const searchRedirect = async () => {
 
 };
 
+//no idea why but submit has issues eventually. click is most reliable
 searchBtn.addEventListener('click', searchRedirect);
+console.log(searchRedirect)

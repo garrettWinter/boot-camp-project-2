@@ -1,28 +1,39 @@
 {{!-- 4th Photo/ FINISHED --}}
-<div>
-    <h1>Product Page</h1>
-</div>
-
+{{#each productDetail as |pd|}}
 <div class="tile is-ancestor">
     <div class="tile is-vertical is-8">
         <div class="tile">
             <div class="tile is-parent is-vertical">
                 <article class="tile is-child notification is-info">
-                    <p class="title">Game of Thrones</p>
-                    <p class="subtitle">With an image</p>
-                    <figure class="image is-4by3">
-                        <img src="https://bulma.io/images/placeholders/640x480.png">
+                    <figure class="image is-4by1 is-inline-block">
+                        <a class="image is-256x256 is-inline-block"><img
+                                class="image is-256x256" src="{{pd.product_image}}" alt="Movie-Image"></a>
                     </figure>
                 </article>
             </div>
             <div class="tile is-parent">
                 <article class="tile is-child notification is-success">
                     <div class="content">
-                        <p class="title">Game of Thrones Details</p>
-                        <p class="subtitle">description</p>
+                        <p class="title">{{pd.product_name}}</p>
+                        <p class="subtitle">{{pd.product_short_description}}</p>
                         <div class="content">
+                            <strong>Trailer Description</strong>
                             <!-- Content -->
+                            <br>
+                            {{pd.product_trailer_description}}
                         </div>
+                        <button data-productID="{{post.product_id}}" class="button is-link addToCartBtn" height="96"
+                            width="96">Buy
+                            Now!</button>
+                        ${{pd.product_price}}
                     </div>
                 </article>
             </div>
+            {{!--
+            <script src=""></script> --}}
+        </div>
+    </div>
+</div>
+{{/each}}
+
+<script src="/js/addToCart.js"></script>

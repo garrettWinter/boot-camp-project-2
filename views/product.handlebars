@@ -20,8 +20,12 @@
                             <strong>Trailer Description</strong>
                             <!-- Content -->
                             <br>
-                           {{pd.product_trailer_description}}
+                            {{pd.product_trailer_description}}
                         </div>
+                        <button data-productID="{{post.product_id}}" class="button is-link addToCartBtn" height="96"
+                            width="96">Buy
+                            Now!</button>
+                        ${{pd.product_price}}
                     </div>
                 </article>
             </div>
@@ -31,3 +35,5 @@
     </div>
 </div>
 {{/each}}
+
+<script src="/js/addToCart.js"></script>

@@ -1,59 +1,71 @@
 {{!--3rd photo --}}
-{{!-- Nick's Code for further implementation  --}}
+{{!-- Nick's Code for further implementation --}}
 {{!-- {{#each categories as |category|}} --}}
 {{!-- {{category}} --}}
+{{!-- {{#each result as |cat|}}
 <div class="card-content">
   <div><strong>Categories</strong></div>
-  <div class="column"><a>Thriller</a>.
-      <a href="#">#css</a> <a href="#">#responsive</a></div>
-  <div class="column"><a>Romance</a>.
-      <a href="#">#css</a> <a href="#">#responsive</a></div>
-  <div class="column"><a>Action</a>.
-      <a href="#">#css</a> <a href="#">#responsive</a></div>
-</div>
-
-{{#each results as |post|}}
-  <div class="productCard p-1">
-    <div class="box">
-      <article class="media">
-        <div class="media-left">
-          <figure class="image is-128x128 is-inline-block">
-            <a class="image is-256x256 is-inline-block" href="/product/{{post.product_id}}"><img class="image is-256x256"
-                src="{{post.product_image}}" alt="Movie-Image"></a>
-          </figure>
-        </div>
-        <div class="media-content">
-          <div class="content">
-            <p>
-            <div class="fontfamily-sans-serif"><strong><a href="/product/{{post.product_id}}">{{post.product_name}}</a> </strong></div>
-            <br>
-            {{post.product_short_description}}
-            </p>
-          </div>
-          <button data-productID="{{post.product_id}}" class="button is-success addToCartBtn" height="96"
-      width="96">Buy Now!</button>
-      ${{post.product_price}}
-          <br>
-        </div>
-      </article>
-    </div>
+  <div class="column"><a>{{cat.product_genre}}</a>{{cat.product_genre}}
+    <a href="#">{{cat.product_genre}}</a> <a href="#">#responsive</a>
   </div>
+  <div class="column"><a>Romance</a>.
+    <a href="#">#css</a> <a href="#">#responsive</a>
+  </div>
+  <div class="column"><a>Action</a>.
+    <a href="#">#css</a> <a href="#">#responsive</a>
+  </div>
+</div>
+{{/each}} --}}
+{{!-- {{results.product_genre}} --}}
+{{#each results as |post|}}
+{{!-- <div>{{post.product_genre}}</div> --}}
+<div class="productCard p-1">
+  <div class="box">
+    <article class="media">
+      <div class="media-left">
+        <figure class="image is-128x128 is-inline-block">
+          <a class="image is-256x256 is-inline-block" href="/product/{{post.product_id}}"><img class="image is-256x256"
+              src="{{post.product_image}}" alt="Movie-Image"></a>
+        </figure>
+      </div>
+      <div class="media-content">
+        <div class="content">
+          <p>
+          <div class="fontfamily-sans-serif"><strong><a href="/product/{{post.product_id}}">{{post.product_name}}</a><br>Genre: {{post.product_genre}}
+            </strong></div>
+          <br>
+          {{post.product_short_description}}
+          </p>
+        </div>
+        <button data-productID="{{post.product_id}}" class="button is-success addToCartBtn" height="96" width="96">Buy
+          Now!</button>
+        ${{post.product_price}}
+        <br>
+      </div>
+    </article>
+  </div>
+</div>
 {{/each}}
 
-<ul>
-  {{#each results as |category|}}
+{{!-- <ul>
+  <li>
+    {{#each results as |category|}}
 
     <div class="card-content">
-  <div><strong>Categories</strong></div>
-  <div class="column"><a>{{category.product_genre}}</a>.
-  <div 
-      {{!-- <a href="#">#css</a> <a href="#">#responsive</a></div>
+      <div><strong>Categories</strong></div>
+      <div class="column"><a>{{category.product_genre}}</a>.
+      </div>
+  </li> --}}
+  {{!-- <a href="#">#css</a> <a href="#">#responsive</a></div>
   <div class="column"><a>Romance</a>.
-      <a href="#">#css</a> <a href="#">#responsive</a></div>
+    <a href="#">#css</a> <a href="#">#responsive</a>
+  </div>
   <div class="column"><a>Action</a>.
-      <a href="#">#css</a> <a href="#">#responsive</a></div> --}}
-{{!-- </div> --}}
-  {{/each}}
+    <a href="#">#css</a> <a href="#">#responsive</a>
+  </div> --}}
+  {{!-- </div> --}}
+{{!-- </ul> --}}
+{{!-- {{/each}} --}}
 {{!-- </ul>
 
 {{!-- Nick's Code for further implementation <ul> --}}
@@ -85,3 +97,4 @@
         </div>
       </div>
 </ul> --}}
+<script src="/js/addToCart.js"></script>

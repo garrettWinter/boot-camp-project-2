@@ -1,71 +1,60 @@
 {{!-- Last Photo Finished--}}
 {{!-- {{each dbSavedLine as |cartstuff|}} --}}
-{{!-- {{each cart as |cartstuff|}} --}}
 <div>
   <h1 class='has-text-white is-size-3 pl-6'>Cart!</h1>
 </div>
+{{#each cart as |cartstuff|}}
 <div>
-  <div class="movie-1 pl-6">
+  {{!-- <div class="movie-1 pl-6">
     <figure class="image1 is-128x128">
-      <img src="">
+      <img src="{{carstuff.Product.product_image}}">
     </figure>
-    {{!-- <button class="button is-primary mb-3" height="96" width="96">Buy Now!</button> --}}
-  </div>
-
-  <div class="movie-2 pl-6">
-    <figure class="image2 is-256x256">
-      <img src="https://bulma.io/images/placeholders/128x128.png">
-    </figure>
-    {{!-- <button class="button is-primary mb-3" height="96" width="96">Buy Now!</button> --}}
-  </div>
-
+  </div> --}}
 
   <section class="hero is-primary">
-    <div class="movie-2 pl-6">
-      <figure class="image2 is-256x256">
-        <img src="https://bulma.io/images/placeholders/128x128.png">
-      </figure>
-      {{!-- <button class="button is-primary mb-3" height="96" width="96">Buy Now!</button> --}}
-
-      <div class="hero-body">
-        <p class="title">
-          Cost:{{cartstuff.product_id}}
-        </p>
-        <p class="subtitle">
-          Quantity:{{cartstuff.qty}}
-        </p>
+    <div class="productCard">
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image is-128x128">
+              <img src="{{cartstuff.Product.product_image}}" alt="Movie-Image">
+            </figure>
+            <div class="media-content">
+              <div class="content">
+              <div>
+                <p class="title is-inline has-text-black pl-auto">
+                  Cost:{{cartstuff.Product.product_price}}
+                </p>
+                <p class="subtitle is-inline has-text-black pl-auto">
+                  Quantity:{{cartstuff.qty}}
+                </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
+</div>
 
-  <br>
+<br>
+{{/each}}
 
-  <section class="hero is-primary">
-    <div class="hero-body">
+<br>
 
-      <p class="title">
-        Cost
-      </p>
-      <p class="subtitle">
-        Quantity
-      </p>
-    </div>
-  </section>
+<section class="hero is-danger is-small">
+  <div class="hero-body">
+    <p class="title">
+      Total Cost:
+    </p>
+    <p class="subtitle">
+      Total Movies/Quantity:
+    </p>
+  </div>
+</section>
 
-  <br>
-
-  <section class="hero is-danger is-small">
-    <div class="hero-body">
-      <p class="title">
-        Total Cost:
-      </p>
-      <p class="subtitle">
-        Total Movies/Quantity:
-      </p>
-    </div>
-  </section>
-
-    <div class="field is-grouped is-grouped-centered">
+<div class="field is-grouped is-grouped-centered">
   <p class="control">
     <a href='/account/orderhistory' id="submitOrderBtn" class="button is-danger mt-1 mb-1">
       Submit

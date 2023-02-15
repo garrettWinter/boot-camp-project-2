@@ -9,6 +9,7 @@
       We have a special sale going on,<strong> Buy 2 get one free!</strong>: Only for a limited time!
     </div>
   </div> --}}
+  
   {{#each homepage as |post|}}
   {{!-- <a href="/category/{{post.product_genre}}"><button class="button is-primary" height="96"
       width="96">{{post.product_genre}}</button></a> --}}
@@ -32,6 +33,7 @@
           </div>
           <button data-productID="{{post.product_id}}" class="button is-success addToCartBtn" height="96" width="96">Buy
             Now!</button>
+            ${{post.product_price}}
           <br>
         </div>
       </article>

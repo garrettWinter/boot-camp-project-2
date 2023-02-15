@@ -3,23 +3,26 @@ const { Customer, LineItem, Product, Order, SavedCart } = require('../../models'
 let cart;
 let ordertotal = 0;
 let userId;
+let createdOrder;
 
 /*
 Make API call to create order
     API Call
         DONE -- Should then find line items from 'SavedCart' for that user and join these against 'Product' Table
-          sum of line item to get the order total
-          create order in table
-          Create line item table
+        DONE -- sum of line item to get the order total
+        DONE -- create order in table
+        DONE -- Create line item table
         Should then delete records from the SavedCart Table
         Should then redirect the customer to the Account Summary Page with onscreen messagin thanking for order
 */
 
 
 router.post('/createorder', async (req, res) => {
-  userId = req.session.customer_id
-  console.log("In submitorder controller");
-  console.log(req.session.logged_in); //THis will return session
+  console.log("In submitOrder controller");
+  // console.log(req.session.logged_in); //THis will return session
+  userId = req.session.customer_id;
+  // console.log("about to console log the userId");
+  // console.log(userId);
   try {
     const dbSavedCartData = await SavedCart.findAll({
       include: [
@@ -35,40 +38,67 @@ router.post('/createorder', async (req, res) => {
       cartLineItems.get({ plain: true })
     );
     console.log(cart);
+    // console.log(cart[0].Product.product_price);
+
+
+
 
     // Summing the order total of the line items in cart
     for (let i = 0; i < cart.length; i++) {
-      ordertotal += cart[i].line_price;
-    }
+      // ordertotal += Number[cart[i].Product.product_price];
+      ordertotal += parseFloat(cart[i].Product.product_price);
+    };
+    console.log("about to parse the summed orderTotal");
+    console.log(ordertotal);
+
+    
 
     // Create the order in the order table ----- Need to figure out how to get a res out of this, so can pass the created OID 
+      console.log(userId);
     const newOrder = await Order.create({
-      customer_ID: userId,
+      customer_id: userId,
       order_total: ordertotal,
+    })
+    .then(function (response) {
+      console.log(response);
+      createdOrder = response.dataValues.order_id;
     });
+console.log("about to log the createdOrder")
+console.log(createdOrder);
+
 
     // Create the records in the line item table
     for (let i = 0; i < cart.length; i++) {
-      let newLineItem = await Order.create({
-        order_id: XXX, //THIS NEEDS TO BE PICKED UP 
-        product_id: cart[i].product_id,
-        line_qty: cart[i].line_qty,
-        line_price: cart[i].line_price,
+      let newLineItem = await LineItem.create({
+        order_id: createdOrder, //THIS NEEDS TO BE PICKED UP 
+        product_id: cart[i].Product.product_id,
+        line_qty: cart[i].qty,
+        line_price: cart[i].Product.product_price,
       });
     }
 
-    /// Forloop via the size of the cart array to delete lines out of savedCart table.
+    
+    // Delete the records in the SavedCart
+      let deleteSavedCarts = await SavedCart.destroy({
+        where: {
+          customer_id: req.session.customer_id,
+        },
+      });
+
+
 
     // Should then redirect the customer to the Account Summary Page with onscreen messagin thanking for order
 
+
+
+
+
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
 
   }
 }
 )
-
-
-
 
 module.exports = router;

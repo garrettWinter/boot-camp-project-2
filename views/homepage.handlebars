@@ -14,27 +14,28 @@
     <div class="box">
       <article class="media">
         <div class="media-left">
-          <figure class="image is-128x128">
-            <a class="image is-256x256" href="/product/{{post.product_id}}"><img class="image is-256x256"
+          <figure class="image is-128x128 is-inline-block">
+            <a class="image is-256x256 is-inline-block" href="/product/{{post.product_id}}"><img class="image is-256x256"
                 src="{{post.product_image}}" alt="Movie-Image"></a>
           </figure>
         </div>
         <div class="media-content">
           <div class="content">
             <p>
-            <div class="fontfamily-sans-serif">{{post.product_name}}</div>
+            <div class="fontfamily-sans-serif"><strong>{{post.product_name}}</strong></div>
             <br>
             {{post.product_short_description}}
             </p>
           </div>
+          <button data-productID="{{post.product_id}}" class="button is-success addToCartBtn" height="96"
+      width="96">Buy Now!</button>
           <br>
         </div>
       </article>
     </div>
-    <button data-productID="{{post.product_id}}" class="button is-success is-light addToCartBtn" height="96"
-      width="96">Buy Now!</button>
   </div>
 {{/each}}
+
 
   {{!-- <div class="productCard p-1">
     <div class="fontfamily-sans-serif">{{post.product_name}}</div>
@@ -63,75 +64,5 @@
       justify-content: space-between;
     }
   </style>
-  {{!-- Comment out here as well for testing other handlebars --}}
-  {{!-- <section class="section is-large">
-    <h1 class="title">Staff Pick of the Week!</h1>
-    <h2 class="subtitle">
-      We can have a movie we select here as a staff pick. <strong>Movie Title</strong>, So here is the description.
-    </h2>
-  </section> --}}
-  {{!-- <div class="movie-1">movie-1
-    <figure class="image1 is-128x128">
-      <img src="https://bulma.io/images/placeholders/128x128.png">
-    </figure>
-    <button class="button is-primary" height="96" width="96">Buy Now!</button>
-  </div>
-
-  <div class="movie-2">movie-2
-    <figure class="image2 is-256x256">
-      <img src="https://bulma.io/images/placeholders/128x128.png">
-    </figure>
-    <button class="button is-success is-light" height="96" width="96">Buy Now!</button>
-  </div>
-
-  <div class="movie-3">movie-3
-    <figure class="image3 is-128x128">
-      <img src="https://bulma.io/images/placeholders/128x128.png">
-    </figure>
-    <button class="button is-primary" height="96" width="96">Buy Now!</button>
-  </div>
-
-  <div class="tile">
-    <div class="tile is-parent">
-      <article class="tile is-child notification is-danger">
-        <!-- The magical tile element! -->
-        <p class="title">Cost</p>
-        <p class="subtitle">Quantity/In Stock</p>
-      </article>
-    </div>
-  </div>
-  <style>
-    .container {
-      height: 50vh;
-    }
-
-    .movie-1 {
-      align-items: baseline;
-      padding-right: 2%;
-      padding-bottom: 2%;
-      float: left;
-      flex-direction: column;
-      flex-wrap: wrap;
-      display: flex;
-      justify-content: space-around;
-    }
-
-    .movie-2 {
-      align-items: baseline;
-      padding-bottom: 2%;
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      flex-flow: column wrap;
-      justify-content: space-around;
-    }
-
-    .movie-3 {
-      align-items: baseline;
-      flex-direction: column;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-    }
-</style> --}}
+ 
 <script src="/js/addToCart.js"></script> 

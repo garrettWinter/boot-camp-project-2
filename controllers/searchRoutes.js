@@ -14,6 +14,7 @@ router.get('/:term', async (req, res) => {
         }
       },
     });
+    console.log(product_name);
     console.log("Completed the find");
     console.log(dbSearchData);
     const results = dbSearchData.map((results) =>

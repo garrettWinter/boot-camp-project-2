@@ -1,6 +1,7 @@
 {{!--3rd photo --}}
 {{!-- Nick's Code for further implementation  --}}
-
+{{!-- {{#each categories as |category|}} --}}
+{{!-- {{category}} --}}
 <div class="card-content">
   <div><strong>Categories</strong></div>
   <div class="column"><a>Thriller</a>.
@@ -11,11 +12,46 @@
       <a href="#">#css</a> <a href="#">#responsive</a></div>
 </div>
 
+{{#each results as |post|}}
+  <div class="productCard p-1">
+    <div class="box">
+      <article class="media">
+        <div class="media-left">
+          <figure class="image is-128x128 is-inline-block">
+            <a class="image is-256x256 is-inline-block" href="/product/{{post.product_id}}"><img class="image is-256x256"
+                src="{{post.product_image}}" alt="Movie-Image"></a>
+          </figure>
+        </div>
+        <div class="media-content">
+          <div class="content">
+            <p>
+            <div class="fontfamily-sans-serif"><strong><a href="/product/{{post.product_id}}">{{post.product_name}}</a> </strong></div>
+            <br>
+            {{post.product_short_description}}
+            </p>
+          </div>
+          <button data-productID="{{post.product_id}}" class="button is-success addToCartBtn" height="96"
+      width="96">Buy Now!</button>
+          <br>
+        </div>
+      </article>
+    </div>
+  </div>
+{{/each}}
+
 <ul>
-  {{#each categories as |category|}}
-  <li>
-    {{category}}
-  </li>
+  {{#each results as |category|}}
+
+    <div class="card-content">
+  <div><strong>Categories</strong></div>
+  <div class="column"><a>{{category.product_genre}}</a>.
+  <div 
+      {{!-- <a href="#">#css</a> <a href="#">#responsive</a></div>
+  <div class="column"><a>Romance</a>.
+      <a href="#">#css</a> <a href="#">#responsive</a></div>
+  <div class="column"><a>Action</a>.
+      <a href="#">#css</a> <a href="#">#responsive</a></div> --}}
+</div>
   {{/each}}
 </ul>
 

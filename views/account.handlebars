@@ -2,7 +2,6 @@
 {{#if logged_in}}
 <div>
   <h1 class="box">My Account</h1>
-  <h2 class="box">Your Previous Orders!</h2>
   {{#each order as |post|}}
   <article class="message is-danger">
   <div class="message-header">
@@ -17,15 +16,6 @@
   </div>
   </div>
 </article>
-  <div class="productCard p-5">
-    <div class="box">
-      <div class="media">
-        <div class="fontfamily-sans-serif p-5"><strong>Order ID: </strong>{{post.order_id}}</div>
-        <div class="fontfamily-sans-serif p-5"><strong>Order Total: </strong>${{post.order_total}}</div>
-        <div class="fontfamily-sans-serif p-5"><strong>Order Date: </strong>{{post.createdAt}}</div>
-      </div>
-    </div>
-  </div>
   {{/each}}
 </div>
 {{/if}}

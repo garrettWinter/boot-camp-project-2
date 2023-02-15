@@ -12,12 +12,12 @@
             </span>
         </button>
     </div>
-    <div class="dropdown-menu" id="dropdown-menu p5" role="menu">
-        <div class="dropdown-content p5">
+    <div class="dropdown-menu" id="dropdown-menu" role="menu" ;>
+        <div class="dropdown-content p5" style="height: 300px; overflow: auto;">
             {{#each homepage as |post|}}
             <a href="/category/{{post.product_genre}}" class="dropdown-item"><button class="button is-primary"
                     height="96" width="96">{{post.product_genre}}</button></a>
-                    {{/each}}
+            {{/each}}
         </div>
     </div>
 </div>

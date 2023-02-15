@@ -11,60 +11,50 @@
     </figure>
   </div> --}}
 
-  <section class="hero is-primary">
-    <div class="productCard">
-      <div class="box">
-        <article class="media">
-          <div class="media-left">
-            <figure class="image is-128x128">
-              <img src="{{cartstuff.Product.product_image}}" alt="Movie-Image">
-            </figure>
-            <div class="media-content">
-              <div class="content">
-              <div>
-                <p class="title is-inline has-text-black pl-auto">
-                  Cost:{{cartstuff.Product.product_price}}
-                </p>
-                <p class="subtitle is-inline has-text-black pl-auto">
-                  Quantity:{{cartstuff.qty}}
-                </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
+  <div class="hero is-primary">
+    <div class="columns mt-1">
+      <div class="column is-one-fifth">
+        <figure class="image is-1x3 pl-3">
+          <img src="{{cartstuff.Product.product_image}}" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="column mr-2">
+        <p class="is-size-1">{{cartstuff.Product.product_name}}</p>
+        <br>
+        <p class="is-size-3">{{cartstuff.Product.product_short_description}}</p>
+        <br>
+        <p class="is-size-2">Price: ${{cartstuff.Product.product_price}}</p>
+        <p class="is-size-2 mb-1">Quantity: {{cartstuff.qty}}</p>
       </div>
     </div>
+  </div>
+  <br>
+  {{/each}}
+
+  <br>
+
+  <section class="hero is-danger is-small">
+    <div class="hero-body">
+      <p class="title">
+        Total Cost:
+      </p>
+      <p class="subtitle">
+        Total Movies/Quantity:
+      </p>
+    </div>
   </section>
-</div>
 
-<br>
-{{/each}}
-
-<br>
-
-<section class="hero is-danger is-small">
-  <div class="hero-body">
-    <p class="title">
-      Total Cost:
+  <div class="field is-grouped is-grouped-centered">
+    <p class="control">
+      <a href='/account/orderhistory' id="submitOrderBtn" class="button is-danger mt-1 mb-1">
+        Submit
+      </a>
     </p>
-    <p class="subtitle">
-      Total Movies/Quantity:
+    <p class="control">
+      <a href='/' class="button is-light mt-1 mb-1">
+        Continue Shopping
+      </a>
     </p>
   </div>
-</section>
-
-<div class="field is-grouped is-grouped-centered">
-  <p class="control">
-    <a href='/account/orderhistory' id="submitOrderBtn" class="button is-danger mt-1 mb-1">
-      Submit
-    </a>
-  </p>
-  <p class="control">
-    <a href='/' class="button is-light mt-1 mb-1">
-      Continue Shopping
-    </a>
-  </p>
-</div>
-<script src="/js/homepage.js"></script>
-<script src="/js/cartSubmit.js"></script>
+  <script src="/js/homepage.js"></script>
+  <script src="/js/cartSubmit.js"></script>

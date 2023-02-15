@@ -49,13 +49,13 @@
           {{#unless logged_in}}
           <a href="/account"><button class="button is-primary redirect" id="loginBtn" height="96" width="96">Login/Sign
               up</button></a>
-          <a href="/category/{{post.product_genre}}"><button class="button is-primary" height="96"
+          <a href="/genre"><button class="button is-primary" height="96"
               width="96">Categories</button></a>
 
           {{/unless}}
           {{#if logged_in}}
 
-          <a href="/category/{{post.product_genre}}"><button class="button is-primary" height="96"
+          <a href="/genre"><button class="button is-primary" height="96"
               width="96">Categories</button></a>
 
           <a href="/account/orderhistory"><button class="button is-primary" height="96" width="96">Account</button></a>

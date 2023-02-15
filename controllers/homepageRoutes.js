@@ -23,4 +23,29 @@ router.get('/', async (req, res) => {
 }
 )
 
+router.get('/genre', async (req, res) => {
+  try {
+    const dbProductData = await Product.findAll({
+      
+    });
+    const homepage = dbProductData.map((product) =>
+      product.get({ plain: true })
+    );
+
+    console.log(homepage);
+    res.render('genre', {
+      layout:'main',
+      homepage,
+      logged_in: req.session.logged_in,
+    });
+  
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+}
+)
+
+
 module.exports = router;
+

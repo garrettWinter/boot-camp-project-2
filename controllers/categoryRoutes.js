@@ -18,7 +18,7 @@ router.get('/:term', async (req, res) => {
     });
     
     // console.log("Completed the find");
-    console.log(dbCategoryData);
+    console.log('dbCategoryData ',dbCategoryData);
     const results = dbCategoryData.map((results) =>
       results.get({ plain: true })
     );

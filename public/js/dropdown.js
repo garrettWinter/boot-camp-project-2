@@ -1,4 +1,4 @@
 var dropdown = document.querySelector('.dropdown')
 dropdown.addEventListener('click', function(){
-    dropdown.setAttribute('class', 'is-active')
+    dropdown.setAttribute('class', 'is-hoverable')
 })

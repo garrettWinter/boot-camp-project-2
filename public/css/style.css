@@ -26,8 +26,15 @@ header {
 }
 
 .box {
+    width: 100%;
     max-width: 1000px;
     text-align: center;
+
+}
+
+#box1 {
+    align-items: center;
+
 }
 
 .container-vid {

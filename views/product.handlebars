@@ -6,8 +6,8 @@
             <div class="tile is-parent is-vertical">
                 <article class="tile is-child notification is-info">
                     <figure class="image is-4by1 is-inline-block">
-                        <a class="image is-256x256 is-inline-block"><img
-                                class="image is-256x256" src="{{pd.product_image}}" alt="Movie-Image"></a>
+                        <a class="image is-256x256 is-inline-block"><img class="image is-256x256"
+                                src="{{pd.product_image}}" alt="Movie-Image"></a>
                     </figure>
                 </article>
             </div>
@@ -19,6 +19,12 @@
                         <div class="content">
                             <strong>Trailer Description</strong>
                             <!-- Content -->
+                            <figure class="image is-16by9">
+                                <iframe class="has-ratio" width="300" height="300" src="{{pd.product_trailer_link}}"
+                                    frameborder="0" allowfullscreen></iframe>
+                            </figure>
+                            <a href="/category/{{pd.product_trailer_link}}" src='{{pd.product_trailer_link}}'></a>
+
                             <br>
                             {{pd.product_trailer_description}}
                         </div>

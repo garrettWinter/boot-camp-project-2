@@ -6,8 +6,8 @@
             <div class="tile is-parent is-vertical">
                 <article class="tile is-child notification is-info">
                     <figure class="image is-4by1 is-inline-block">
-                        <a class="image is-256x256 is-inline-block"><img
-                                class="image is-256x256" src="{{pd.product_image}}" alt="Movie-Image"></a>
+                        <a class="image is-256x256 is-inline-block"><img class="image is-256x256"
+                                src="{{pd.product_image}}" alt="Movie-Image"></a>
                     </figure>
                 </article>
             </div>
@@ -19,10 +19,18 @@
                         <div class="content">
                             <strong>Trailer Description</strong>
                             <!-- Content -->
+
+                            <div class="container-vid">
+                               <iframe width="560" height="315" src="https://www.imdb.com/video/imdb/vi1348706585/imdb/embed" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+
+                            <a target="_blank" href="{{pd.product_trailer_link}}"
+                                src='{{pd.product_trailer_link}}'>Click here for Trailer!</a>
+
                             <br>
                             {{pd.product_trailer_description}}
                         </div>
-                        <button data-productID="{{post.product_id}}" class="button is-link addToCartBtn" height="96"
+                        <button data-productID="{{pd.product_id}}" class="button is-link addToCartBtn" height="96"
                             width="96">Buy
                             Now!</button>
                         ${{pd.product_price}}

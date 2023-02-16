@@ -32,6 +32,13 @@ router.get('/genre', async (req, res) => {
       product.get({ plain: true })
     );
 
+/*
+push the product_genre into a sperate array
+remove commas, spaces and then remove duplicates
+sort the array with Array.prototype.sort()
+update the render with the new array
+*/
+
     console.log(homepage);
     res.render('genre', {
       layout:'main',

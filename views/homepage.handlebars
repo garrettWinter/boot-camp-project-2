@@ -1,18 +1,9 @@
-{{!-- 2nd Photo? Also a great place to test how handlebars will look finished--}}
 <div>
   <h1 class="has-text-white is-size-3 has-text-centered pr-6 mr-6"><strong>Top 10 Movies Bought Today</strong></h1>
 </div>
 
-{{!-- <div class="columns">
-  <div class="column is-fluid">
-    <div class="notification is-primary">
-      We have a special sale going on,<strong> Buy 2 get one free!</strong>: Only for a limited time!
-    </div>
-  </div> --}}
-  
+{{!-- Renders homepage with ten most popular movies overall. Will try to make it update based on daily purchases in future. --}}
   {{#each homepage as |post|}}
-  {{!-- <a href="/category/{{post.product_genre}}"><button class="button is-primary" height="96"
-      width="96">{{post.product_genre}}</button></a> --}}
   <div class="productCard px-6 py-1">
     <div class="box">
       <article class="media">
@@ -26,7 +17,8 @@
           <div class="content">
             <p>
             <div class="fontfamily-sans-serif"><strong><a href="/product/{{post.product_id}}">{{post.product_name}}</a>
-              </strong></div>
+              </strong>
+              </div>
             <br>
             {{post.product_short_description}}
             </p>
@@ -40,19 +32,6 @@
     </div>
   </div>
   {{/each}}
-
-  {{!-- <div class="productCard p-1">
-    <div class="fontfamily-sans-serif">{{post.product_name}}</div>
-    <div>
-      <figure class="image is-256x256">
-        <a class="image is-256x256" href="/product/{{post.product_id}}"><img class="image is-256x256"
-            src="{{post.product_image}}"></a>
-      </figure>
-    </div>
-    <button data-productID="{{post.product_id}}" class="button is-success is-light addToCartBtn" height="96"
-      width="96">Buy Now!</button>
-  </div>
-  {{/each}} --}}
 
   <style>
     .container {

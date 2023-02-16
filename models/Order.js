@@ -1,3 +1,4 @@
+// Creates Order table which contains Customer's order id, customer id and order totals.
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 

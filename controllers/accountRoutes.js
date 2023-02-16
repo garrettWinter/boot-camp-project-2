@@ -22,6 +22,7 @@ router.get('/', async (req, res) => {
 }
 )
 
+//Getting all of customer's order data.
 router.get('/orderhistory', async (req, res) => {
   try {
     const dbOrderData = await Order.findAll({
@@ -34,7 +35,6 @@ router.get('/orderhistory', async (req, res) => {
       order.get({ plain: true })
     );
 
-    console.log(order);
     res.render('account', {
       order,
       logged_in: req.session.logged_in,
@@ -45,6 +45,7 @@ router.get('/orderhistory', async (req, res) => {
   }
 })
 
+// Getting data of a single order by customer.
 router.get('/orderHistory/:id', async (req, res) => {
   try {
     const dbOrderDetail = await Order.findByPk(req.params.id);

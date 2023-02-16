@@ -1,4 +1,5 @@
-console.log('login.js loaded');
+//console.log('login.js loaded');
+// Allows Users with accounts to login.
 const loginFormHandler = async (event) => {
     event.preventDefault();
 
@@ -15,7 +16,6 @@ const loginFormHandler = async (event) => {
         if (response.ok) {
             document.location.replace('/');
         } else {
-            console.log(response);
             alert('Failed to log in. Email or Password is incorrect!');
         }
     }

@@ -1,8 +1,3 @@
-{{!-- {{#each homepage as |post|}}
-<a href="/category/{{post.product_genre}}"><button class="button is-primary" height="96"
-        width="96">{{post.product_genre}}</button></a>
-{{/each}} --}}
-
 <div class="dropdown is-hoverable">
     <div class="dropdown-trigger">
         <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
@@ -14,6 +9,7 @@
     </div>
     <div class="dropdown-menu" id="dropdown-menu" role="menu">
         <div class="dropdown-content p5" style="height: 300px; overflow: auto;">
+            {{!-- Creates a dropdown containing all avalible genres. --}}
             {{#each homepage as |post|}}
             <a href="/category/{{post.product_genre}}" class="dropdown-item"><button class="button is-primary"
                     height="96" width="96">{{post.product_genre}}</button></a>

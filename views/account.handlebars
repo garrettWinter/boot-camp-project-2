@@ -1,21 +1,26 @@
 {{!-- 1st photo finished --}}
 {{#if logged_in}}
-<div>
-  <h1 class="box">My Account</h1>
+<div id="box1">
+  <div>
+    <div>
+      <h1 class="box has-text-centered is-size-3 pr-6 mr-6"><strong>My Account</strong></h1>
+    </div>
+  </div>
+  <br>
   {{#each order as |post|}}
   <article class="message is-danger">
-  <div class="message-header">
-    <p>Order History</p>
-    {{!-- <button class="delete" aria-label="delete"></button> --}}
-  </div>
-  <div class="productCard p-5">
-  <div class="message-body has-text-black">
-    <div class="is-family-primary p-5"><strong>Order ID: </strong>{{post.order_id}}</div>
+    <div class="message-header">
+      <p>Order History</p>
+      {{!-- <button class="delete" aria-label="delete"></button> --}}
+    </div>
+    <div class="productCard p-5">
+      <div class="message-body has-text-black">
+        <div class="is-family-primary p-5"><strong>Order ID: </strong>{{post.order_id}}</div>
         <div class="fontfamily-sans-serif p-5"><strong>Order Total: </strong>${{post.order_total}}</div>
         <div class="fontfamily-sans-serif p-5"><strong>Order Date: </strong>{{post.createdAt}}</div>
-  </div>
-  </div>
-</article>
+      </div>
+    </div>
+  </article>
   {{/each}}
 </div>
 {{/if}}

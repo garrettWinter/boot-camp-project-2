@@ -13,9 +13,11 @@ router.get('/:term', async (req, res) => {
       },
     });
     
-    const results = dbCategoryData.map((results) =>
-      results.get({ plain: true })
-    );
+    const results = dbCategoryData.map((results) => {
+      const product = results.get({ plain: true });
+      return {  
+        product, logged_in: req.session.logged_in}
+    });
 
     res.render('category', {
       results,

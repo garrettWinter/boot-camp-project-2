@@ -1,51 +1,60 @@
 <div>
   <h1 class="has-text-white is-size-3 has-text-centered pr-6 mr-6"><strong>Top 10 Movies Bought Today</strong></h1>
 </div>
-
-{{!-- Renders homepage with ten most popular movies overall. Will try to make it update based on daily purchases in future. --}}
-  {{#each homepage as |post|}}
-  <div class="productCard px-6 py-1">
-    <div class="box">
-      <article class="media">
-        <div class="media-left">
-          <figure class="image is-128x128 is-inline-block">
-            <a class="image is-256x256 is-inline-block" href="/product/{{post.product_id}}"><img
-                class="image is-256x256" src="{{post.product_image}}" alt="Movie-Image"></a>
-          </figure>
-        </div>
-        <div class="media-content">
-          <div class="content">
-            <p>
-            <div class="fontfamily-sans-serif"><strong><a href="/product/{{post.product_id}}">{{post.product_name}}</a>
-              </strong>
-              </div>
-            <br>
-            {{post.product_short_description}}
-            </p>
+{{!-- Renders homepage with ten most popular movies overall. Will try to make it update based on daily purchases in
+future. --}}
+    <div class="columns is-multiline">
+{{log logged_in}}
+{{#each homepage as |post|}}
+<div class="column is-3-widescreen is-4-desktop is-6-tablet is-12-mobile">
+  <div class="box">
+    <article class="media">
+      <div class="media-left">
+        <figure class="image is-128x128 is-inline-block">
+          <a class="image is-256x256 is-inline-block" href="/product/{{post.product.product_id}}"><img class="image is-256x256"
+              src="{{post.product.product_image}}" alt="Movie-Image"></a>
+        </figure>
+      </div>
+      <div class="media-content">
+        <div class="content">
+          <p>
+          <div class="fontfamily-sans-serif"><strong><a href="/product/{{post.product.product_id}}">{{post.product.product_name}}</a>
+            </strong>
           </div>
-          <button data-productID="{{post.product_id}}" class="button is-success addToCartBtn" height="96" width="96">Buy
-            Now!</button>
-            ${{post.product_price}}
           <br>
+          {{post.product.product_short_description}}
+          </p>
         </div>
-      </article>
-    </div>
+        {{!-- {{log logged_in}} --}}
+        {{#if logged_in}}
+        <button data-productID="{{post.product.product_id}}" class="button is-success addToCartBtn" height="96" width="96">Buy
+          Now!</button>
+        {{else}}
+        <p height="96" width="96" class="is-size-5 has-text-weight-bold has-text-danger">Please login to add to cart</p>
+        {{/if}}
+        <br>
+        ${{post.product.product_price}}
+        <br>
+      </div>
+    </article>
   </div>
-  {{/each}}
+</div>
+{{/each}}
+</div>
 
-  <style>
-    .container {
-      height: 50vh;
-    }
+<style>
+  .container {
+    height: 50vh;
+  }
 
-    .productCard {
-      align-items: baseline;
-      float: left;
-      flex-direction: column;
-      flex-wrap: wrap;
-      display: flex;
-      justify-content: space-between;
-    }
-  </style>
+  .productCard {
+    align-items: baseline;
+    float: left;
+    flex-direction: column;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
 
-  <script src="/js/addToCart.js"></script>
+<script src="/js/addToCart.js"></script>

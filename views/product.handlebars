@@ -1,5 +1,4 @@
 {{!-- Renders the details of specific movie chosen by User. --}}
-{{#each productDetail as |pd|}}
 <div class="tile is-ancestor">
     <div class="tile is-vertical is-8">
         <div class="tile">
@@ -7,34 +6,38 @@
                 <article class="tile is-child notification is-info">
                     <figure class="image is-4by1 is-inline-block">
                         <a class="image is-256x256 is-inline-block"><img class="image is-256x256"
-                                src="{{pd.product_image}}" alt="Movie-Image"></a>
+                                src="{{product_image}}" alt="Movie-Image"></a>
                     </figure>
                 </article>
             </div>
             <div class="tile is-parent">
                 <article class="tile is-child notification is-success">
                     <div class="content">
-                        <p class="title">{{pd.product_name}}</p>
-                        <p class="subtitle">{{pd.product_short_description}}</p>
+                        <p class="title">{{product_name}}</p>
+                        <p class="subtitle">{{product_short_description}}</p>
                         <div class="content">
                             <strong>Trailer Description</strong>
                             <br>
                             <br>
-                            {{pd.product_trailer_description}}
+                            {{product_trailer_description}}
                             <br>
                             <br>
-                            <a target="_blank" href="{{pd.product_trailer_link}}"
-                                src='{{pd.product_trailer_link}}'>Click here for Trailer!</a>
+                            <a target="_blank" href="{{product_trailer_link}}" src='{{product_trailer_link}}'>Click here
+                                for Trailer!</a>
                         </div>
-                        <button data-productID="{{pd.product_id}}" class="button is-link addToCartBtn" height="96"
+                        {{#if logged_in}}
+                        <button data-productID="{{product_id}}" class="button is-link addToCartBtn" height="96"
                             width="96">Buy Now!</button>
-                        ${{pd.product_price}}
+                        {{else}}
+                        <p height="96" width="96" class="is-size-5 has-text-weight-bold has-text-danger">Please login to
+                            add to cart</p>
+                        {{/if}}
+                        ${{product_price}}
                     </div>
                 </article>
             </div>
         </div>
     </div>
 </div>
-{{/each}}
 
 <script src="/js/addToCart.js"></script>

@@ -4,7 +4,6 @@ const { Customer } = require('../../models');
 
 // CREATE new user
 router.post('/signup', async (req, res) => {
-  console.log(req.body);
   try {
     const dbCustomerData = await Customer.create({
       user_name: req.body.user_name,
@@ -18,7 +17,6 @@ router.post('/signup', async (req, res) => {
       res.status(200).json(dbCustomerData);
     });
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -29,8 +27,6 @@ router.post('/signup', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const CustomerData = await Customer.findOne({ where: { email: req.body.email } });
-    console.log(req.body);
-
     if (!CustomerData) {
       res
         .status(400)

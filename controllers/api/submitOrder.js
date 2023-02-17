@@ -32,7 +32,6 @@ router.post('/createorder', async (req, res) => {
       order_total: ordertotal,
     })
     .then(function (response) {
-      console.log(response);
       createdOrder = response.dataValues.order_id;
     });
 
@@ -54,7 +53,6 @@ router.post('/createorder', async (req, res) => {
       });
 
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
 
   }

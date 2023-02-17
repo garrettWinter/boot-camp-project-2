@@ -4,7 +4,7 @@ const { SavedCart } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 //Add a product to the shopper's saved cart.
-router.post('/newLineItem', withAuth, async (req, res) => {  
+router.post('/newLineItem', async (req, res) => {  
 try {
    const dbSavedLine = await SavedCart.create({
     customer_id: req.session.customer_id,

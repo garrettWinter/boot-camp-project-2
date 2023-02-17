@@ -43,6 +43,7 @@ Customer.init(
     },
   },
   {
+
     // Controls the number of times the password will be hashed before hash is stored on creation and update.
     hooks: {
       beforeCreate: async (newPassword) => {

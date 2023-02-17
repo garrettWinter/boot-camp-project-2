@@ -1,3 +1,4 @@
+// Creates Line Item table which tracks a single product, its cost and quantity in the order.
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
@@ -36,12 +37,8 @@ LineItem.init(
       type: DataTypes.DECIMAL(10,2),
       allowNull: false,
     },
-    // NOT MVP
-    // product_type: {
-    //     type: DataTypes.STRING,
-    //     allowNull: false,
-    // },
   },
+
   {
     sequelize,
     timestamps: true,

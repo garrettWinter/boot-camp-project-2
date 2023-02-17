@@ -1,4 +1,4 @@
-{{!-- 4th Photo/ FINISHED --}}
+{{!-- Renders the details of specific movie chosen by User. --}}
 {{#each productDetail as |pd|}}
 <div class="tile is-ancestor">
     <div class="tile is-vertical is-8">
@@ -18,7 +18,6 @@
                         <p class="subtitle">{{pd.product_short_description}}</p>
                         <div class="content">
                             <strong>Trailer Description</strong>
-                            <!-- Content -->
                             <br>
                             <br>
                             {{pd.product_trailer_description}}
@@ -28,14 +27,11 @@
                                 src='{{pd.product_trailer_link}}'>Click here for Trailer!</a>
                         </div>
                         <button data-productID="{{pd.product_id}}" class="button is-link addToCartBtn" height="96"
-                            width="96">Buy
-                            Now!</button>
+                            width="96">Buy Now!</button>
                         ${{pd.product_price}}
                     </div>
                 </article>
             </div>
-            {{!--
-            <script src=""></script> --}}
         </div>
     </div>
 </div>

@@ -1,3 +1,4 @@
+// Creates Cart table which contains all the shopping data of a User before they are finished.
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
@@ -15,18 +16,10 @@ SavedCart.init(
         customer_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            // references: {
-            //     model: 'Customer',
-            //     key: 'customer_id',
-            // },
         },
         product_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            // references: {
-            //     model: 'Product',
-            //     key: 'product_id',
-            // },
         },
         qty: {
             type: DataTypes.INTEGER,

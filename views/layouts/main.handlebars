@@ -1,4 +1,3 @@
-{{!-- 2nd photo? finished--}}
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -40,16 +39,15 @@
         <div class="bulma-ltr-property-mixin">
           <form class="form">
             <div class="is-two-thirds">
-              <p class="control">
-                
-              </p>
-              {{!-- <a href="/search"><button class="button is-primary" id="searchBtn" height="96"
-                  width="96">Search</button></a> --}}
+              <p class="control"></p>
               <input id="searchBar" class="input is-link" type="text" placeholder="Search Bar/ Categories">
             </div>
           </form>
 
+          {{!-- Site navigation buttons. Change depending on if User is logged in or not so as not to mislead to an auth
+          required page. --}}
           {{#unless logged_in}}
+
           <a href="/"><button class="button is-danger" height="96" width="96">Home</button></a>
 
           <button class="button is-primary" id="searchBtn" height="96" width="96">Search</button>
@@ -77,37 +75,15 @@
         </div>
       </div>
   </header>
-  {{!-- Stack overflow explanation of using id with class for a button
-  https://stackoverflow.com/questions/4371733/can-i-use-div-class-and-id-together-in-css
-
-  #y.x {
-  /* will select element of id="y" that also has class="x" */
-  }
-  Similarly:
-
-  .x#y {
-  /* will select elements of class="x" that also have an id="y" */
-  } --}}
-
-  {{!-- Old code below --}}
-  {{!-- <button id=" loginBtn">Login/Sign up</button> --}}
 
   <main>
     <div class="container">
       <div class="notification has-background-grey-darker is-fullheight">
-        {{!-- Comment down from line 52 to 120 for testing other handlebars looks --}}
-
         {{{ body }}}
       </div>
     </div>
   </main>
 
-  {{!-- <div class="footer mt-auto">
-    <div class="content has-text-centered">
-      <p>
-      </p>
-    </div>
-  </div> --}}
   <footer class="mt-auto is-flex-wrap-wrap is-justify-content-flex-end is-align-content-end" id="footer">
     <section class="hero is-primary mt-3">
       <div class="hero-body mt-auto" id="divFooter">
@@ -118,44 +94,23 @@
         </p>
         </p>
         <p class="subtitle mt-auto">
-          <a target="_blank" href="https://github.com/garrettWinter">Garrett</a>, <a
-            target="_blank" href="https://github.com/Sal8298">Salahuddin</a>, <a
-            target="_blank" href="https://github.com/NickHM05">Nicholas</a>, <a
-            target="_blank" href="https://github.com/AbdirisakAbukar">Abdi</a> 
-            <br>
-            <br>This project is using the <a target="_blank" href="http://opensource.org/licenses/mit-license.php">MIT</a> license.
-          <br>
-          <br>
-          <strong>All movie data used in this project belongs to the
-          <a target="_blank" href='https://imdb-api.com/'>IMDb API</a></strong>
+          <a href="https://github.com/garrettWinter?tab=repositories">Garrett</a>,
+          <a href="https://github.com/Sal8298?tab=repositories">Salahuddin</a>,
+          <a href="https://github.com/NickHM05">Nicholas</a>,
+          <a href="https://github.com/AbdirisakAbukar?tab=repositories">Abdi</a>,
+          The source code is licensed
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>,
+          All movie data used in this project belongs to the
+          <a href="https://imdb-api.com/">IMDb API</a>
         </p>
       </div>
     </section>
   </footer>
-
-  {{!-- Does body need to be moved? --}}
-
 </body>
-
-{{!-- <div class="footer mt-auto">
-  <div class="content has-text-centered">
-    <p>
-      <strong>Contact Us</strong> @ <a href="https://github.com/garrettWinter?tab=repositories">Garrett</a>, <a
-        href="https://github.com/Sal8298?tab=repositories">Salahuddin</a>, <a
-        href="https://github.com/NickHM05">Nicholas</a>, <a
-        href="https://github.com/AbdirisakAbukar?tab=repositories">Abdi</a> The source code is licensed
-      <a href="http://opensource.org/licenses/mit-license.php">MIT</a>
-    </p>
-  </div>
-</div>
-</body> --}}
-
-{{!--
-<script src=></script> --}}
+{{!-- Loads logout.js to make logout button functional. --}}
 {{#if logged_in}}
 <script src="/js/logout.js"></script>
 {{/if}}
 <script src="/js/searchBar.js"></script>
-
 
 </html>

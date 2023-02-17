@@ -1,18 +1,15 @@
-console.log("addToCart.js is connected");
-
-// const addToCart = require('../../utils/addToCart')
+//console.log("addToCart.js is connected");
 let clickedProduct;
 const addToCartBtns = document.querySelectorAll('.addToCartBtn');
 
-
+// Adds product data to cart when buy button clicked.
 async function addToCart(product_id) {
-    console.log('Add to Cart triggered')
+    //console.log('Add to Cart triggered')
    const savedData = {
         product_id: product_id,
         qty: 1,
     }
 
-    console.log(savedData)
     const response = await fetch('/api/savedCart/newLineItem', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -24,7 +21,6 @@ async function addToCart(product_id) {
 addToCartBtns.forEach(function(addToCartBtn) {
     addToCartBtn.addEventListener("click", function(event) {
         clickedProduct = event.target.getAttribute('data-productID');
-        console.log(clickedProduct);
         addToCart(clickedProduct, 1);
     });
 });

@@ -5,8 +5,8 @@ const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const morgan = require('morgan');
 const fs = require('fs');
+// Creates access.log file for Morgan log  data.
 const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a'})
-// const helpers = require('./utils/helpers');
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -17,6 +17,7 @@ const PORT = process.env.PORT || 3001;
 
 const hbs = exphbs.create({ });
 
+//Creates Session parameters.
 const sess = {
   secret: 'Super secret secret',
   cookie: {
@@ -44,6 +45,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
+// Defines the data added to the Morgan log data.
 app.use(morgan(':method ":referrer" (:status) :response-time ms [:date[web]] :url', { stream: accessLogStream }))
 
 sequelize.sync({ force: false, alter: false }).then(() => {

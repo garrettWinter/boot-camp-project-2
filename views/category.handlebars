@@ -1,4 +1,3 @@
-
 {{!-- Renders all avalible movies depending on the chosen genre from genre.handlebar page. --}}
 {{#each results as |post|}}
 <div class="productCard p-1">
@@ -6,23 +5,29 @@
     <article class="media">
       <div class="media-left">
         <figure class="image is-128x128 is-inline-block">
-          <a class="image is-256x256 is-inline-block" href="/product/{{post.product_id}}"><img class="image is-256x256"
-              src="{{post.product_image}}" alt="Movie-Image"></a>
+          <a class="image is-256x256 is-inline-block" href="/product/{{post.product.product_id}}"><img class="image is-256x256"
+              src="{{post.product.product_image}}" alt="Movie-Image"></a>
         </figure>
       </div>
       <div class="media-content">
         <div class="content">
           <p>
-          <div class="fontfamily-sans-serif"><strong><a href="/product/{{post.product_id}}">{{post.product_name}}</a><br>Genre: {{post.product_genre}}
+          <div class="fontfamily-sans-serif"><strong><a
+                href="/product/{{post.product.product_id}}">{{post.product.product_name}}</a><br>Genre: {{post.product.product_genre}}
             </strong></div>
           <br>
-          {{post.product_short_description}}
+          {{post.product.product_short_description}}
           </p>
         </div>
-        <button data-productID="{{post.product_id}}" class="button is-success addToCartBtn" height="96" width="96">Buy
+        {{log logged_in}}
+        {{#if logged_in}}
+        <button data-productID="{{post.product.product_id}}" class="button is-success addToCartBtn" height="96" width="96">Buy
           Now!</button>
-        ${{post.product_price}}
-        <br>
+        {{else}}
+        <p height="96" width="96" class="is-size-5 has-text-weight-bold has-text-danger">Please login to add to cart</p>
+          {{/if}}
+          ${{post.product.product_price}}
+          <br>
       </div>
     </article>
   </div>

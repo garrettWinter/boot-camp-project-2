@@ -1,6 +1,7 @@
 let clickedProduct;
 const addToCartBtns = document.querySelectorAll('.addToCartBtn');
 
+
 // Adds product data to cart when buy button clicked.
 async function addToCart(product_id) {
    const savedData = {

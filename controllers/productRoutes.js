@@ -6,15 +6,14 @@ router.get('/:id', async (req, res) => {
   try {
     const dbProductData = await Product.findByPk(req.params.id);
 
-    const productDetail = [dbProductData.get({ plain: true })];
+    const productDetail = dbProductData.get({ plain: true });
 
     res.render('product', {
-      productDetail,
+      ...productDetail,
       logged_in: req.session.logged_in,
     });
 
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 }

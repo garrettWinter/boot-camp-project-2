@@ -22,6 +22,7 @@ router.get('/', async (req, res) => {
   }
 }
 )
+
 //Getting all of logged in customer's order data.
 router.get('/orderhistory', async (req, res) => {
   try {
@@ -52,14 +53,12 @@ router.get('/orderHistory/:id', async (req, res) => {
 
     const orderDetail = dbOrderDetail.get({ plain: true });
 
-    console.log(orderDetail);
     res.render('account', {
       orderDetail,
       logged_in: req.session.logged_in,
     });
     
   } catch (error) {
-    console.log(error);
     res.status(500).json(error);
   }
 })

@@ -7,15 +7,20 @@ router.get('/', async (req, res) => {
     const dbProductData = await Product.findAll({
       limit: 10,
     });
-    const homepage = dbProductData.map((product) =>
-      product.get({ plain: true })
-    );
+    const homepage = dbProductData.map((results) => {
+      const product = results.get({ plain: true });
+      return {
+        product, logged_in: req.session.logged_in
+      }
+    });
+
+
 
     res.render('homepage', {
       homepage,
       logged_in: req.session.logged_in,
     });
-  
+
 
   } catch (err) {
     res.status(500).json(err);
@@ -27,18 +32,18 @@ router.get('/', async (req, res) => {
 router.get('/genre', async (req, res) => {
   try {
     const dbProductData = await Product.findAll({
-      
+
     });
     const homepage = dbProductData.map((product) =>
       product.get({ plain: true })
     );
 
     res.render('genre', {
-      layout:'main',
+      layout: 'main',
       homepage,
       logged_in: req.session.logged_in,
     });
-  
+
 
   } catch (err) {
     res.status(500).json(err);

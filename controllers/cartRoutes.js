@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { Customer, LineItem, Product, Order, SavedCart } = require('../models');
 
-
 //Renders logged in users cart.
 router.get('/', async (req, res) => {
 
@@ -25,7 +24,6 @@ router.get('/', async (req, res) => {
       logged_in: req.session.logged_in,
     });
    } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   
   }

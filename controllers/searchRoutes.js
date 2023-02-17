@@ -12,10 +12,12 @@ router.get('/:term', async (req, res) => {
         }
       },
     });
-    const results = dbSearchData.map((results) =>
-      results.get({ plain: true })
-    );
-
+    const results = dbSearchData.map((results) => {
+      const product = results.get({ plain: true });
+      return {
+        product, logged_in: req.session.logged_in
+      }
+    });
     res.render('category', {
       results,
       logged_in: req.session.logged_in,

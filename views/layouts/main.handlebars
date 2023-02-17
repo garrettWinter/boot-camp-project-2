@@ -36,21 +36,23 @@
           }
         </style>
 
+
         <div class="bulma-ltr-property-mixin">
-          <form class="form">
-            <div class="is-two-thirds">
-              <p class="control"></p>
-              <input id="searchBar" class="input is-link" type="text" placeholder="Search Bar/ Categories">
+          <form id="searchForm">
+            <div class="field has-addons">
+              <div class="control">
+                <input id='searchBar' class="input" type="text" placeholder="Search by part of a Movie Name">
+              </div>
+              <div class="control">
+                <a id='searchBtn' class="button is-primary"> Search </a>
+              </div>
             </div>
           </form>
-
           {{!-- Site navigation buttons. Change depending on if User is logged in or not so as not to mislead to an auth
           required page. --}}
           {{#unless logged_in}}
 
           <a href="/"><button class="button is-danger" height="96" width="96">Home</button></a>
-
-          <button class="button is-primary" id="searchBtn" height="96" width="96">Search</button>
 
           <a href="/account"><button class="button is-primary redirect" id="loginBtn" height="96" width="96">Login/Sign
               up</button></a>
@@ -61,8 +63,6 @@
           {{#if logged_in}}
 
           <a href="/"><button class="button is-danger" height="96" width="96">Home</button></a>
-
-          <button class="button is-primary" id="searchBtn" height="96" width="96">Search</button>
 
           <a href="/genre"><button class="button is-primary" height="96" width="96">Categories</button></a>
 
@@ -77,10 +77,8 @@
   </header>
 
   <main>
-    <div class="container">
-      <div class="notification has-background-grey-darker is-fullheight">
-        {{{ body }}}
-      </div>
+    <div class="notification has-background-grey-darker is-fullheight">
+      {{{ body }}}
     </div>
   </main>
 

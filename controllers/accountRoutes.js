@@ -22,7 +22,6 @@ router.get('/', async (req, res) => {
   }
 }
 )
-
 //Getting all of logged in customer's order data.
 router.get('/orderhistory', async (req, res) => {
   try {

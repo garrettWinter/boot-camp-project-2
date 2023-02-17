@@ -23,6 +23,7 @@ router.get('/', async (req, res) => {
 }
 )
 
+// Making dropdown category list.
 router.get('/genre', async (req, res) => {
   try {
     const dbProductData = await Product.findAll({

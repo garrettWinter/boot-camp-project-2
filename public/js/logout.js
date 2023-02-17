@@ -1,4 +1,3 @@
-// console.log('logout.js loaded');
 // Allows logged in users to logout. Redirects them to homepage.
 const logout = async () => {
     const response = await fetch('/api/account/logout', {

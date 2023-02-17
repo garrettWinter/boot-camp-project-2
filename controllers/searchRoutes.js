@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Customer, LineItem, Product, Order } = require('../models');
 const { Op } = require('sequelize');
 
+// Search product title by likeness
 router.get('/:term', async (req, res) => {
   try {
     const dbSearchData = await Product.findAll({

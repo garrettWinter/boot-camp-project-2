@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Customer, LineItem, Product, Order, SavedCart } = require('../models');
 
-//Products put by customer in cart.
+//Renders logged in users cart.
 router.get('/', async (req, res) => {
 
   try {

@@ -5,7 +5,7 @@ let ordertotal = 0;
 let userId;
 let createdOrder;
 
-//finds all prodcuts in cart.
+//submits all prodcuts in saved cart to an order.
 router.post('/createorder', async (req, res) => {
   userId = req.session.customer_id;
   try {

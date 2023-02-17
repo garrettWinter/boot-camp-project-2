@@ -1,4 +1,3 @@
-//console.log('login.js loaded');
 // Allows Users with accounts to login.
 const loginFormHandler = async (event) => {
     event.preventDefault();

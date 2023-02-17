@@ -1,8 +1,5 @@
-//console.log("cartSubmit.js is connected");
-
 // When User if finished shopping and buys product, they are redirected to account history page.
 const cartSubmit = async () => {
-    //console.log('Cart Submit triggered')
     const response = await fetch('/api/submitorder/createorder', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

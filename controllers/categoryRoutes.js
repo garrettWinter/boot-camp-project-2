@@ -28,6 +28,7 @@ router.get('/:term', async (req, res) => {
 }
 )
 
+// Generates product data for search results.
 router.get('/', async (req, res) => {
   try {
     const dbProductData = await Product.findAll({});

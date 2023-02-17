@@ -1,6 +1,4 @@
-// console.log('searchBar.js loaded');
 //Allows Users to search for a specific movie with the searchbar. Currently only works with singular words.
-
 const searchBar = document.querySelector('#searchBar');
 const searchBtn = document.querySelector('#searchBtn');
 

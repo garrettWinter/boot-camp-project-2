@@ -1,10 +1,8 @@
-//console.log("addToCart.js is connected");
 let clickedProduct;
 const addToCartBtns = document.querySelectorAll('.addToCartBtn');
 
 // Adds product data to cart when buy button clicked.
 async function addToCart(product_id) {
-    //console.log('Add to Cart triggered')
    const savedData = {
         product_id: product_id,
         qty: 1,

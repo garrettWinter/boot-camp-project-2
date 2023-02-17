@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Customer, LineItem, Product, Order } = require('../models');
 
+// Gets all customer's data.
 router.get('/', async (req, res) => {
   try {
     const dbAccountData = await Customer.findAll({
@@ -22,6 +23,7 @@ router.get('/', async (req, res) => {
 }
 )
 
+//Getting all of logged in customer's order data.
 router.get('/orderhistory', async (req, res) => {
   try {
     const dbOrderData = await Order.findAll({
@@ -34,7 +36,6 @@ router.get('/orderhistory', async (req, res) => {
       order.get({ plain: true })
     );
 
-    console.log(order);
     res.render('account', {
       order,
       logged_in: req.session.logged_in,
@@ -45,6 +46,7 @@ router.get('/orderhistory', async (req, res) => {
   }
 })
 
+// Getting data of a single order by logged in customer.
 router.get('/orderHistory/:id', async (req, res) => {
   try {
     const dbOrderDetail = await Order.findByPk(req.params.id);

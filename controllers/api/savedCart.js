@@ -2,10 +2,8 @@ const router = require('express').Router();
 const session = require('express-session');
 const { SavedCart } = require('../../models');
 
-router.post('/newLineItem', async (req, res) => {
-    console.log(req.session);
-    // console.log(req.body);
-    
+//Add a product to the shopper's saved cart.
+router.post('/newLineItem', async (req, res) => {  
 try {
    const dbSavedLine = await SavedCart.create({
     customer_id: req.session.customer_id,

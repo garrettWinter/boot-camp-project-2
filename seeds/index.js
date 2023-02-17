@@ -1,3 +1,4 @@
+//Controls the seeded data.
 const sequelize = require('../config/connection');
 
 const Product = require('../models/Product');
@@ -12,6 +13,7 @@ const orderData = require('./data/orderSeeds.json');
 const lineItemData = require('./data/lineItemSeeds.json');
 const savedCartData = require('./data/savedCartDataSeeds.json');
 
+//Creates data for all tables.
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
@@ -43,4 +45,5 @@ const seedDatabase = async () => {
   process.exit(0);
 };
 
+// Starts seed database function.
 seedDatabase();

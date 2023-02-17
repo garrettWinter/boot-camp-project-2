@@ -1,4 +1,4 @@
-console.log('signup.js loaded');
+//Allows new users without accounts to signup and access pages requring logged_in auth.
 const signupFormHandler = async (event) => {
     event.preventDefault();
 

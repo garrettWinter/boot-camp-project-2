@@ -1,3 +1,4 @@
+// Creates the Product table which contains a movie's name, price genre and other assorted data.
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 

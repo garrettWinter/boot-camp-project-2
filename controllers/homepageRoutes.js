@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Customer, LineItem, Product, Order } = require('../models');
 
+//Puts top ten movies on homepage.
 router.get('/', async (req, res) => {
   try {
     const dbProductData = await Product.findAll({
@@ -10,7 +11,6 @@ router.get('/', async (req, res) => {
       product.get({ plain: true })
     );
 
-    console.log(homepage);
     res.render('homepage', {
       homepage,
       logged_in: req.session.logged_in,
@@ -23,6 +23,7 @@ router.get('/', async (req, res) => {
 }
 )
 
+// Making dropdown category list.
 router.get('/genre', async (req, res) => {
   try {
     const dbProductData = await Product.findAll({
@@ -32,14 +33,6 @@ router.get('/genre', async (req, res) => {
       product.get({ plain: true })
     );
 
-/*
-push the product_genre into a sperate array
-remove commas, spaces and then remove duplicates
-sort the array with Array.prototype.sort()
-update the render with the new array
-*/
-
-    console.log(homepage);
     res.render('genre', {
       layout:'main',
       homepage,
@@ -52,7 +45,6 @@ update the render with the new array
   }
 }
 )
-
 
 module.exports = router;
 

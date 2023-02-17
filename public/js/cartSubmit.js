@@ -1,14 +1,11 @@
-console.log("cartSubmit.js is connected");
-
+// When User if finished shopping and buys product, they are redirected to account history page.
 const cartSubmit = async () => {
-    console.log('Cart Submit triggered')
-    const response = await fetch('/api/submitorder/createorder', { // This path needs to be updated!
+    const response = await fetch('/api/submitorder/createorder', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
     });
-    console.log(response);
+
     if (response.ok) {
-        console.log('in response')
         document.location.replace('/account/orderhistory');
     } else {
         alert('Failed to submit cart.');
@@ -16,6 +13,5 @@ const cartSubmit = async () => {
 
 };
 
-
-const submitOrderBtn = document.querySelector('#submitOrderBtn'); /// UPdate to point to button ID when created 
+const submitOrderBtn = document.querySelector('#submitOrderBtn');
 submitOrderBtn.addEventListener("click", cartSubmit)

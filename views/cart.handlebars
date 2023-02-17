@@ -1,16 +1,9 @@
-{{!-- Last Photo Finished--}}
-{{!-- {{each dbSavedLine as |cartstuff|}} --}}
 <div>
   <h1 class='has-text-white is-size-3 pl-6'>Cart!</h1>
 </div>
+{{!-- Renders the cart depending on User's selected movies. --}}
 {{#each cart as |cartstuff|}}
 <div>
-  {{!-- <div class="movie-1 pl-6">
-    <figure class="image1 is-128x128">
-      <img src="{{carstuff.Product.product_image}}">
-    </figure>
-  </div> --}}
-
   <div class="hero is-primary">
     <div class="columns mt-1">
       <div class="column is-one-fifth">
@@ -35,25 +28,17 @@
 
   <section class="hero is-danger is-small">
     <div class="hero-body">
-      <p class="title">
-        Total Cost:
-      </p>
-      <p class="subtitle">
-        Total Movies/Quantity:
-      </p>
+      <p class="title">Total Cost:</p>
+      <p class="subtitle">Total Movies/Quantity:</p>
     </div>
   </section>
 
   <div class="field is-grouped is-grouped-centered">
     <p class="control">
-      <a href='/account/orderhistory' id="submitOrderBtn" class="button is-primary mt-1 mb-1">
-        Submit
-      </a>
+      <a href='/account/orderhistory' id="submitOrderBtn" class="button is-primary mt-1 mb-1">Submit</a>
     </p>
     <p class="control">
-      <a href='/' class="button is-info mt-1 mb-1">
-        Continue Shopping
-      </a>
+      <a href='/' class="button is-info mt-1 mb-1">Continue Shopping</a>
     </p>
   </div>
   <script src="/js/homepage.js"></script>
